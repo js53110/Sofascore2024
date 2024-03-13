@@ -8,15 +8,16 @@
 import Foundation
 import SnapKit
 import UIKit
+import SofaAcademic
 
-class ScoreLabel: UIView {
+class ScoreLabel: BaseView {
     
     let score: Int
+    let scoreString: String
     let matchStatus: matchStatus
+    
     let scoreLabel = UILabel()
     let textColor: UIColor
-    
-    let scoreString: String
 
     init(score: Int, matchStatus: matchStatus) {
         self.score = score
@@ -28,22 +29,19 @@ class ScoreLabel: UIView {
             textColor = .black
         }
         self.scoreString = String(score)
-        super.init(frame: .zero)
-        setupView()
+        super.init()
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setupView() {
-        
+    override func addViews() {
         addSubview(scoreLabel)
+    }
 
+    override func styleViews() {
         scoreLabel.text = String(scoreString)
         scoreLabel.textColor = textColor
-        scoreLabel.font = RobotoRegular14
+        scoreLabel.font = RobotoRegular14    }
 
+    override func setupConstraints() {
         snp.makeConstraints() {
             $0.height.equalTo(16)
             $0.width.equalTo(32)

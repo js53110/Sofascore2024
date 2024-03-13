@@ -8,13 +8,15 @@
 import Foundation
 import SnapKit
 import UIKit
+import SofaAcademic
 
-class LeagueNameView: UIView {
+class LeagueNameView: BaseView {
 
     let countryName: String
     let leagueName: String
     let leagueLogo: String
     let arrow: String = "pointer"
+    let stackView: UIStackView
     
     private let countryNameLabel = UILabel()
     private let leagueNameLabel = UILabel()
@@ -26,23 +28,20 @@ class LeagueNameView: UIView {
         self.countryName = countryName
         self.leagueName = leagueName
         self.leagueLogo = leagueLogo
-        super.init(frame: .zero)
-        setupView()
+        
+        self.stackView = UIStackView(arrangedSubviews: [countryNameLabel, arrowImageView, leagueNameLabel])
+
+        super.init()
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setupView() {
-        
-        let stackView = UIStackView(arrangedSubviews: [countryNameLabel, arrowImageView, leagueNameLabel])
-        stackView.axis = .horizontal
-        stackView.alignment = .center
-        
+    override func addViews() {
         addSubview(stackView)
         addSubview(leagueLogoImageView)
-        
+    }
+
+    override func styleViews() {
+        stackView.axis = .horizontal
+        stackView.alignment = .center
         countryNameLabel.text = countryName
         countryNameLabel.font = RobotoBold
         
@@ -52,7 +51,9 @@ class LeagueNameView: UIView {
 
         leagueLogoImageView.image = UIImage(named: leagueLogo)
         arrowImageView.image = UIImage(named: arrow)
-        
+    }
+
+    override func setupConstraints() {
         snp.makeConstraints() {
             $0.height.equalTo(56)
         }
@@ -70,6 +71,6 @@ class LeagueNameView: UIView {
         stackView.snp.makeConstraints(){
             $0.leading.equalToSuperview().offset(80)
             $0.centerY.equalToSuperview() // Center vertically in superview
-        }
+        } 
     }
 }

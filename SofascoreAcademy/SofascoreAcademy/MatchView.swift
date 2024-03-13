@@ -8,9 +8,9 @@
 import Foundation
 import SnapKit
 import UIKit
+import SofaAcademic
 
-
-class MatchView: UIView {
+class MatchView: BaseView {
     
     let homeTeam: String
     let homeTeamLogo: String
@@ -20,6 +20,13 @@ class MatchView: UIView {
     let awayTeamScore: Int?
     let matchStatus: matchStatus
     let matchTime: TimeInterval
+    
+    let homeTeamLabel: TeamLabel
+    let awayTeamLabel: TeamLabel
+    let timeStackView: TimeStatusStackView
+    
+    let divider = UIView()
+    let timeRect = UIView()
 
     init(homeTeam:String, homeTeamLogo: String, homeTeamScore:Int?, awayTeam:String, awayTeamLogo: String, awayTeamScore: Int?, matchStatus: matchStatus, matchTime: TimeInterval) {
         self.homeTeam = homeTeam
@@ -30,39 +37,60 @@ class MatchView: UIView {
         self.awayTeamScore = awayTeamScore
         self.matchStatus = matchStatus
         self.matchTime = matchTime
-        super.init(frame: .zero)
-        setupView()
+        
+        self.homeTeamLabel = TeamLabel(teamName: homeTeam, teamLogo: homeTeamLogo)
+        self.awayTeamLabel = TeamLabel(teamName: awayTeam, teamLogo: awayTeamLogo)
+        self.timeStackView = TimeStatusStackView(matchTime: matchTime, status: matchStatus)
+        
+        super.init()
+        setupScores()
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setupView() {
-        
-        let homeTeam = TeamLabel(teamName: homeTeam, teamLogo: homeTeamLogo)
-        let awayTeam = TeamLabel(teamName: awayTeam, teamLogo: awayTeamLogo)
-        
-        let timeRect = UIView()
-        let divider = UIView()
-        let timeStackView = TimeStatusStackView(matchTime: matchTime, status: matchStatus)
-
+    override func addViews() {
         addSubview(timeRect)
-        timeRect.addSubview(timeStackView)
         timeRect.addSubview(divider)
-        addSubview(homeTeam)
-        addSubview(awayTeam)
-        
+        timeRect.addSubview(timeStackView)
+        addSubview(homeTeamLabel)
+        addSubview(awayTeamLabel)
+    }
+
+    override func styleViews() {
         divider.backgroundColor = UIColor(white: 18.0 / 255.0, alpha: 0.1)
-        
+    }
+
+    override func setupConstraints() {
         divider.snp.makeConstraints() {
             $0.leading.equalToSuperview().offset(63)
             $0.trailing.equalToSuperview()
             $0.top.equalToSuperview().offset(8)
             $0.bottom.equalToSuperview().inset(8)
-            
         }
-
+        
+        timeRect.snp.makeConstraints() {
+            $0.height.equalTo(56)
+            $0.width.equalTo(64)
+            $0.top.equalToSuperview()
+            $0.left.equalToSuperview()
+        }
+        timeStackView.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(10)
+            $0.leading.equalToSuperview().offset(4)
+            $0.trailing.equalToSuperview().offset(-4)
+            $0.bottom.equalToSuperview().inset(10)
+        }
+        
+        homeTeamLabel.snp.makeConstraints() {
+            $0.top.equalToSuperview().offset(10)
+            $0.leading.equalToSuperview().offset(80)
+        }
+        
+        awayTeamLabel.snp.makeConstraints() {
+            $0.top.equalToSuperview().offset(30)
+            $0.leading.equalToSuperview().offset(80)
+        }
+    }
+    
+    private func setupScores() {
         if let homeScore = homeTeamScore {
             let homeResult = ScoreLabel(score: homeScore, matchStatus: matchStatus)
             addSubview(homeResult)
@@ -79,30 +107,6 @@ class MatchView: UIView {
                 $0.top.equalToSuperview().offset(30)
                 $0.right.equalToSuperview().inset(16)
             }
-        }
-        
-        timeRect.snp.makeConstraints() {
-            $0.height.equalTo(56)
-            $0.width.equalTo(64)
-            $0.top.equalToSuperview()
-            $0.left.equalToSuperview()
-        }
-        
-        timeStackView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(10)
-            $0.leading.equalToSuperview().offset(4)
-            $0.trailing.equalToSuperview().offset(-4)
-            $0.bottom.equalToSuperview().inset(10)
-        }
-        
-        homeTeam.snp.makeConstraints() {
-            $0.top.equalToSuperview().offset(10)
-            $0.leading.equalToSuperview().offset(80)
-        }
-        
-        awayTeam.snp.makeConstraints() {
-            $0.top.equalToSuperview().offset(30)
-            $0.leading.equalToSuperview().offset(80)
         }
     }
 }

@@ -8,8 +8,9 @@
 import Foundation
 import SnapKit
 import UIKit
+import SofaAcademic
 
-class TimeStatusStackView: UIView {
+class TimeStatusStackView: BaseView {
     
     let matchTime: String
     let matchStatus: String
@@ -27,19 +28,14 @@ class TimeStatusStackView: UIView {
         default:
             self.fontColor = lightGrey
         }
-        super.init(frame: .zero)
-        setupView()
+        super.init()
     }
     
-    required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    private func setupView() {
-     
+    override func addViews() {
         addSubview(timeView)
-        addSubview(statusView)
-        
+        addSubview(statusView)    }
+
+    override func styleViews() {
         timeView.text = matchTime
         timeView.font = RobotoCondensedRegularMicro
         timeView.textColor = lightGrey
@@ -48,8 +44,9 @@ class TimeStatusStackView: UIView {
         statusView.text = matchStatus
         statusView.font = RobotoCondensedRegularMicro
         statusView.textColor = fontColor
-        statusView.textAlignment = .center
-        
+        statusView.textAlignment = .center    }
+
+    override func setupConstraints() {
         timeView.snp.makeConstraints() {
             $0.height.equalTo(16)
             $0.top.equalToSuperview()
@@ -59,6 +56,7 @@ class TimeStatusStackView: UIView {
         statusView.snp.makeConstraints() {
             $0.height.equalTo(16)
             $0.bottom.equalToSuperview()
-            $0.leading.trailing.equalToSuperview()        }
+            $0.leading.trailing.equalToSuperview()       
+        }
     }
 }

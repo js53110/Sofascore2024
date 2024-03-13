@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "academy",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sofascore/academy",
+      "state" : {
+        "branch" : "master",
+        "revision" : "39f8ee8ea860ce7db20a3f2d1c30bdeeb6d7b94e"
+      }
+    },
+    {
       "identity" : "snapkit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SnapKit/SnapKit",
