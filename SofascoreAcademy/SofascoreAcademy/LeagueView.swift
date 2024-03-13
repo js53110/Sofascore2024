@@ -25,6 +25,7 @@ class LeagueView: UIView {
     private func setupView() {
         
         let leagueNameView:LeagueNameView = .init(countryName: "Spain", leagueName: "LaLiga", leagueLogo: "leagueLogo")
+        
         addSubview(leagueNameView)
         
         snp.makeConstraints() {

@@ -31,12 +31,12 @@ class TeamLabel: UIView {
     
     private func setupView() {
         
+        addSubview(teamNameLabel)
+        addSubview(teamLogoImageView)
+        
         teamNameLabel.text = teamName
         teamNameLabel.font = RobotoRegular14
         teamLogoImageView.image = UIImage(named: teamLogo)
-
-        addSubview(teamNameLabel)
-        addSubview(teamLogoImageView)
         
         snp.makeConstraints() {
             $0.height.equalTo(16)

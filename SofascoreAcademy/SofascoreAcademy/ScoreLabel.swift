@@ -15,6 +15,8 @@ class ScoreLabel: UIView {
     let matchStatus: matchStatus
     let scoreLabel = UILabel()
     let textColor: UIColor
+    
+    let scoreString: String
 
     init(score: Int, matchStatus: matchStatus) {
         self.score = score
@@ -25,6 +27,7 @@ class ScoreLabel: UIView {
         default:
             textColor = .black
         }
+        self.scoreString = String(score)
         super.init(frame: .zero)
         setupView()
     }
@@ -34,14 +37,13 @@ class ScoreLabel: UIView {
     }
     
     private func setupView() {
-        let scoreToString = String(score)
         
-        scoreLabel.text = String(scoreToString)
+        addSubview(scoreLabel)
+
+        scoreLabel.text = String(scoreString)
         scoreLabel.textColor = textColor
         scoreLabel.font = RobotoRegular14
 
-        addSubview(scoreLabel)
-        
         snp.makeConstraints() {
             $0.height.equalTo(16)
             $0.width.equalTo(32)

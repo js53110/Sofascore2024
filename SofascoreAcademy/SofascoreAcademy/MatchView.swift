@@ -40,11 +40,18 @@ class MatchView: UIView {
     
     private func setupView() {
         
-        let timeRect = UIView()
-        addSubview(timeRect)
+        let homeTeam = TeamLabel(teamName: homeTeam, teamLogo: homeTeamLogo)
+        let awayTeam = TeamLabel(teamName: awayTeam, teamLogo: awayTeamLogo)
         
+        let timeRect = UIView()
         let divider = UIView()
+        let timeStackView = TimeStatusStackView(matchTime: matchTime, status: matchStatus)
+
+        addSubview(timeRect)
+        timeRect.addSubview(timeStackView)
         timeRect.addSubview(divider)
+        addSubview(homeTeam)
+        addSubview(awayTeam)
         
         divider.backgroundColor = UIColor(white: 18.0 / 255.0, alpha: 0.1)
         
@@ -56,12 +63,6 @@ class MatchView: UIView {
             
         }
 
-        let timeStackView = TimeStatusStackView(matchTime: matchTime, status: matchStatus)
-        timeRect.addSubview(timeStackView)
-                
-        let homeTeam = TeamLabel(teamName: homeTeam, teamLogo: homeTeamLogo)
-        let awayTeam = TeamLabel(teamName: awayTeam, teamLogo: awayTeamLogo)
-        
         if let homeScore = homeTeamScore {
             let homeResult = ScoreLabel(score: homeScore, matchStatus: matchStatus)
             addSubview(homeResult)
@@ -80,9 +81,6 @@ class MatchView: UIView {
             }
         }
         
-        addSubview(homeTeam)
-        addSubview(awayTeam)
-          
         timeRect.snp.makeConstraints() {
             $0.height.equalTo(56)
             $0.width.equalTo(64)

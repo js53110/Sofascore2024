@@ -15,6 +15,9 @@ class TimeStatusStackView: UIStackView {
     let matchStatus: String
     let fontColor: UIColor
     
+    let timeView = UILabel()
+    let statusView = UILabel()
+    
     init(matchTime: TimeInterval, status: matchStatus) {
         self.matchTime = convertTimestampToTime(timeStamp: matchTime)
         self.matchStatus = determineMatchStatus(matchStatus: status)
@@ -36,20 +39,18 @@ class TimeStatusStackView: UIStackView {
         axis = .vertical
         spacing = 4
         
-        let timeView = UILabel()
+        addArrangedSubview(timeView)
+        addArrangedSubview(statusView)
+        
         timeView.text = matchTime
         timeView.font = RobotoCondensedRegularMicro
         timeView.textColor = lightGrey
         timeView.textAlignment = .center
         
-        addArrangedSubview(timeView)
-                
-        let statusView = UILabel()
         statusView.text = matchStatus
         statusView.font = RobotoCondensedRegularMicro
         statusView.textColor = fontColor
         statusView.textAlignment = .center
-        addArrangedSubview(statusView)
         
         timeView.snp.makeConstraints() {
             $0.height.equalTo(16)

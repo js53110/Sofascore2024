@@ -9,13 +9,12 @@ import Foundation
 import SnapKit
 import UIKit
 
-
 class LeagueNameView: UIView {
 
-    let countryName:String
-    let leagueName:String
-    let leagueLogo:String
-    let arrow:String = "pointer"
+    let countryName: String
+    let leagueName: String
+    let leagueLogo: String
+    let arrow: String = "pointer"
     
     private let countryNameLabel = UILabel()
     private let leagueNameLabel = UILabel()
@@ -37,17 +36,22 @@ class LeagueNameView: UIView {
     
     private func setupView() {
         
+        let stackView = UIStackView(arrangedSubviews: [countryNameLabel, arrowImageView, leagueNameLabel])
+        stackView.axis = .horizontal
+        stackView.alignment = .center
+        
+        addSubview(stackView)
+        addSubview(leagueLogoImageView)
+        
         countryNameLabel.text = countryName
         countryNameLabel.font = RobotoBold
+        
         leagueNameLabel.text = leagueName
         leagueNameLabel.textColor = lightGrey
         leagueNameLabel.font = RobotoBold
 
         leagueLogoImageView.image = UIImage(named: leagueLogo)
-        arrowImageView.image = UIImage(named: arrow
-        )
-  
-        addSubview(leagueLogoImageView)
+        arrowImageView.image = UIImage(named: arrow)
         
         snp.makeConstraints() {
             $0.height.equalTo(56)
@@ -62,11 +66,6 @@ class LeagueNameView: UIView {
             $0.leading.equalToSuperview().offset(16) // 16 points from the left edge of superview
             $0.centerY.equalToSuperview() // Center vertically in superview
         }
-        
-        let stackView = UIStackView(arrangedSubviews: [countryNameLabel, arrowImageView, leagueNameLabel])
-        stackView.axis = .horizontal
-        stackView.alignment = .center
-        addSubview(stackView)
         
         stackView.snp.makeConstraints(){
             $0.leading.equalToSuperview().offset(80)
