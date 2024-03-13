@@ -9,7 +9,7 @@ import Foundation
 import SnapKit
 import UIKit
 
-class TimeStatusStackView: UIStackView {
+class TimeStatusStackView: UIView {
     
     let matchTime: String
     let matchStatus: String
@@ -36,11 +36,9 @@ class TimeStatusStackView: UIStackView {
     }
 
     private func setupView() {
-        axis = .vertical
-        spacing = 4
-        
-        addArrangedSubview(timeView)
-        addArrangedSubview(statusView)
+     
+        addSubview(timeView)
+        addSubview(statusView)
         
         timeView.text = matchTime
         timeView.font = RobotoCondensedRegularMicro
@@ -54,10 +52,13 @@ class TimeStatusStackView: UIStackView {
         
         timeView.snp.makeConstraints() {
             $0.height.equalTo(16)
+            $0.top.equalToSuperview()
+            $0.leading.trailing.equalToSuperview()
         }
         
         statusView.snp.makeConstraints() {
             $0.height.equalTo(16)
-        }
+            $0.bottom.equalToSuperview()
+            $0.leading.trailing.equalToSuperview()        }
     }
 }
