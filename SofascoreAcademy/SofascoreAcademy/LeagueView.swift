@@ -14,17 +14,21 @@ class LeagueView: BaseView {
     let leagueData: Array<matchData>
     
     init(leagueData: Array<matchData>) {
+        
         self.leagueData = leagueData
         super.init()
             setupView()
         }
+    
     let leagueNameView:LeagueNameView = .init(countryName: "Spain", leagueName: "LaLiga", leagueLogo: "leagueLogo")
     
     override func addViews() {
+        
         addSubview(leagueNameView)
     }
 
     override func setupConstraints() {
+        
         snp.makeConstraints() {
             $0.height.equalTo(56)
         }

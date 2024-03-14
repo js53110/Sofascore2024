@@ -25,6 +25,7 @@ class LeagueNameView: BaseView {
     private let arrowImageView = UIImageView()
 
     init(countryName: String, leagueName: String, leagueLogo: String) {
+        
         self.countryName = countryName
         self.leagueName = leagueName
         self.leagueLogo = leagueLogo
@@ -35,11 +36,13 @@ class LeagueNameView: BaseView {
     }
     
     override func addViews() {
+        
         addSubview(stackView)
         addSubview(leagueLogoImageView)
     }
 
     override func styleViews() {
+        
         stackView.axis = .horizontal
         stackView.alignment = .center
         countryNameLabel.text = countryName
@@ -54,6 +57,7 @@ class LeagueNameView: BaseView {
     }
 
     override func setupConstraints() {
+        
         snp.makeConstraints() {
             $0.height.equalTo(56)
         }

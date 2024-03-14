@@ -29,6 +29,7 @@ class MatchView: BaseView {
     let timeRect = UIView()
 
     init(homeTeam:String, homeTeamLogo: String, homeTeamScore:Int?, awayTeam:String, awayTeamLogo: String, awayTeamScore: Int?, matchStatus: matchStatus, matchTime: TimeInterval) {
+        
         self.homeTeam = homeTeam
         self.homeTeamLogo = homeTeamLogo
         self.homeTeamScore = homeTeamScore
@@ -47,6 +48,7 @@ class MatchView: BaseView {
     }
     
     override func addViews() {
+        
         addSubview(timeRect)
         timeRect.addSubview(divider)
         timeRect.addSubview(timeStackView)
@@ -55,10 +57,12 @@ class MatchView: BaseView {
     }
 
     override func styleViews() {
+        
         divider.backgroundColor = UIColor(white: 18.0 / 255.0, alpha: 0.1)
     }
 
     override func setupConstraints() {
+        
         divider.snp.makeConstraints() {
             $0.leading.equalToSuperview().offset(63)
             $0.trailing.equalToSuperview()
@@ -91,6 +95,7 @@ class MatchView: BaseView {
     }
     
     private func setupScores() {
+        
         if let homeScore = homeTeamScore {
             let homeResult = ScoreLabel(score: homeScore, matchStatus: matchStatus)
             addSubview(homeResult)

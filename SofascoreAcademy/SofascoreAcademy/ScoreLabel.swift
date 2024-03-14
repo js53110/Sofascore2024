@@ -20,6 +20,7 @@ class ScoreLabel: BaseView {
     let textColor: UIColor
 
     init(score: Int, matchStatus: matchStatus) {
+        
         self.score = score
         self.matchStatus = matchStatus
         switch matchStatus {
@@ -33,15 +34,19 @@ class ScoreLabel: BaseView {
     }
     
     override func addViews() {
+        
         addSubview(scoreLabel)
     }
 
     override func styleViews() {
+        
         scoreLabel.text = String(scoreString)
         scoreLabel.textColor = textColor
-        scoreLabel.font = RobotoRegular14    }
+        scoreLabel.font = RobotoRegular14
+    }
 
     override func setupConstraints() {
+        
         snp.makeConstraints() {
             $0.height.equalTo(16)
             $0.width.equalTo(32)

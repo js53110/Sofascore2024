@@ -20,23 +20,27 @@ class TeamLabel: BaseView {
     let teamLogoImageView = UIImageView()
 
     init(teamName: String, teamLogo: String) {
+        
         self.teamName = teamName
         self.teamLogo = teamLogo
         super.init()
     }
     
     override func addViews() {
+        
         addSubview(teamNameLabel)
         addSubview(teamLogoImageView)
     }
 
     override func styleViews() {
+        
         teamNameLabel.text = teamName
         teamNameLabel.font = RobotoRegular14
         teamLogoImageView.image = UIImage(named: teamLogo)
     }
 
     override func setupConstraints() {
+        
         snp.makeConstraints() {
             $0.height.equalTo(16)
             $0.width.equalTo(216)

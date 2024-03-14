@@ -18,6 +18,7 @@ var lightGrey = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
 var red = UIColor.red
 
 enum matchStatus {
+    
     case upcoming
     case inProgress
     case finished
@@ -36,6 +37,7 @@ struct matchData{
 }
 
 func determineMatchStatus(matchStatus: matchStatus) -> String {
+    
     switch matchStatus {
     case .finished:
         return "FT"
@@ -47,6 +49,7 @@ func determineMatchStatus(matchStatus: matchStatus) -> String {
 }
 
 func convertTimestampToTime(timeStamp: TimeInterval) -> String {
+    
     let date = Date(timeIntervalSince1970: timeStamp)
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "HH:mm"
@@ -62,13 +65,14 @@ let matchData3 = matchData(homeTeam: "Manchester United", awayTeam: "Barcelona",
 
 let matchData4 = matchData(homeTeam: "Manchester United", awayTeam: "Barcelona", homeLogo: "mutd_logo", awayLogo: "fcb_logo", status: .upcoming, timeStamp: 1710354600, homeTeamScore: nil, awayTeamScore: nil)
 
-let leagueData:Array<matchData> = [matchData1, matchData2, matchData3, matchData4]
+let leagueData: Array<matchData> = [matchData1, matchData2, matchData3, matchData4]
 
 class ViewController: UIViewController {
 
     let leagueView: LeagueView = .init(leagueData: leagueData)
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         view.backgroundColor = .white

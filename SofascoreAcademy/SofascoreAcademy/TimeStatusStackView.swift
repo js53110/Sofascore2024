@@ -20,6 +20,7 @@ class TimeStatusStackView: BaseView {
     let statusView = UILabel()
     
     init(matchTime: TimeInterval, status: matchStatus) {
+        
         self.matchTime = convertTimestampToTime(timeStamp: matchTime)
         self.matchStatus = determineMatchStatus(matchStatus: status)
         switch status {
@@ -32,10 +33,13 @@ class TimeStatusStackView: BaseView {
     }
     
     override func addViews() {
+        
         addSubview(timeView)
-        addSubview(statusView)    }
+        addSubview(statusView)
+    }
 
     override func styleViews() {
+        
         timeView.text = matchTime
         timeView.font = RobotoCondensedRegularMicro
         timeView.textColor = lightGrey
@@ -44,9 +48,11 @@ class TimeStatusStackView: BaseView {
         statusView.text = matchStatus
         statusView.font = RobotoCondensedRegularMicro
         statusView.textColor = fontColor
-        statusView.textAlignment = .center    }
+        statusView.textAlignment = .center
+    }
 
     override func setupConstraints() {
+        
         timeView.snp.makeConstraints() {
             $0.height.equalTo(16)
             $0.top.equalToSuperview()
