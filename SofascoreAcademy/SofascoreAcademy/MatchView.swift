@@ -12,21 +12,21 @@ import SofaAcademic
 
 class MatchView: BaseView {
     
-    let homeTeam: String
-    let homeTeamLogo: String
-    let homeTeamScore: Int?
-    let awayTeam: String
-    let awayTeamLogo: String
-    let awayTeamScore: Int?
-    let matchStatus: matchStatus
-    let matchTime: TimeInterval
+    private let homeTeam: String
+    private let homeTeamLogo: String
+    private let homeTeamScore: Int?
+    private let awayTeam: String
+    private let awayTeamLogo: String
+    private let awayTeamScore: Int?
+    private let matchStatus: matchStatus
+    private let matchTime: TimeInterval
     
-    let homeTeamLabel: TeamLabel
-    let awayTeamLabel: TeamLabel
-    let timeStackView: TimeStatusStackView
+    private let homeTeamLabel: TeamLabel
+    private let awayTeamLabel: TeamLabel
+    private let timeStackView: TimeStatusStackView
     
-    let divider = UIView()
-    let timeRect = UIView()
+    private let divider = UIView()
+    private let timeRect = UIView()
 
     init(homeTeam:String, homeTeamLogo: String, homeTeamScore:Int?, awayTeam:String, awayTeamLogo: String, awayTeamScore: Int?, matchStatus: matchStatus, matchTime: TimeInterval) {
         
