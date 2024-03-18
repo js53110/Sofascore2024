@@ -17,7 +17,7 @@ class LeagueView: BaseView {
         
         self.leagueData = leagueData
         super.init()
-            setupView()
+        setupView()
         }
     
     let leagueNameView:LeagueNameView = .init(countryName: "Spain", leagueName: "LaLiga", leagueLogo: "leagueLogo")
