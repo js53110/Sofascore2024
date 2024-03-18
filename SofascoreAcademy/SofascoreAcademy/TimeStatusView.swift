@@ -10,7 +10,7 @@ import SnapKit
 import UIKit
 import SofaAcademic
 
-class TimeStatusStackView: BaseView {
+class TimeStatusView: BaseView {
     
     let matchTime: String
     let matchStatus: String

@@ -9,14 +9,6 @@ import UIKit
 import Foundation
 import SnapKit
 
-var RobotoBold = UIFont(name: "Roboto-Bold", size: 14)
-let RobotoRegular14 = UIFont(name: "Roboto-Regular", size: 14)
-let RobotoRegular12 = UIFont(name: "Roboto-Regular", size: 12)
-let RobotoCondensedRegularMicro = UIFont(name: "RobotoCondensed-Regular", size: 12)
-
-var lightGrey = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
-var red = UIColor.red
-
 enum matchStatus {
     
     case upcoming

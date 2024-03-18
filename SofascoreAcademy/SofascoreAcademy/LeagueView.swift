@@ -12,7 +12,7 @@ import SofaAcademic
 class LeagueView: BaseView {
     
     private let leagueData: Array<matchData>
-    private let leagueNameView:LeagueNameView = .init(countryName: "Spain", leagueName: "LaLiga", leagueLogo: "leagueLogo")
+    private let LeagueInfoView: LeagueInfoView = .init(countryName: "Spain", leagueName: "LaLiga", leagueLogo: "leagueLogo")
     
     init(leagueData: Array<matchData>) {
         
@@ -23,7 +23,7 @@ class LeagueView: BaseView {
     
     override func addViews() {
         
-        addSubview(leagueNameView)
+        addSubview(LeagueInfoView)
     }
 
     override func setupConstraints() {
@@ -32,7 +32,7 @@ class LeagueView: BaseView {
             $0.height.equalTo(56)
         }
         
-        leagueNameView.snp.makeConstraints() {
+        LeagueInfoView.snp.makeConstraints() {
             $0.edges.equalToSuperview()
         }
     }
@@ -42,7 +42,7 @@ class LeagueView: BaseView {
         for (index, data) in leagueData.enumerated() {
             let matchView = MatchView(homeTeam: data.homeTeam, homeTeamLogo: data.homeLogo, homeTeamScore: data.homeTeamScore, awayTeam: data.awayTeam, awayTeamLogo: data.awayLogo, awayTeamScore: data.awayTeamScore, matchStatus: data.status, matchTime: data.timeStamp)
                     
-            leagueNameView.addSubview(matchView)
+            LeagueInfoView.addSubview(matchView)
                     
             matchView.snp.makeConstraints {
                 $0.top.equalToSuperview().offset((index+1) * 56)

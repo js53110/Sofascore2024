@@ -12,12 +12,12 @@ import SofaAcademic
 
 class ScoreLabel: BaseView {
     
-    let score: Int
-    let scoreString: String
-    let matchStatus: matchStatus
+    private let score: Int
+    private let scoreString: String
+    private let matchStatus: matchStatus
     
-    let scoreLabel = UILabel()
-    let textColor: UIColor
+    private let scoreLabel = UILabel()
+    private let textColor: UIColor
 
     init(score: Int, matchStatus: matchStatus) {
         
@@ -54,7 +54,7 @@ class ScoreLabel: BaseView {
         
         scoreLabel.snp.makeConstraints() {
             $0.top.equalToSuperview()
-            $0.right.equalToSuperview()
+            $0.trailing.equalToSuperview()
         }
     }
 }

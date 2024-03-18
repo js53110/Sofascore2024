@@ -23,7 +23,7 @@ class MatchView: BaseView {
     
     private let homeTeamLabel: TeamNameLogoVeiw
     private let awayTeamLabel: TeamNameLogoVeiw
-    private let timeStackView: TimeStatusStackView
+    private let timeStatusView: TimeStatusView
     
     private let divider = UIView()
     private let timeRect = UIView()
@@ -41,7 +41,7 @@ class MatchView: BaseView {
         
         self.homeTeamLabel = TeamNameLogoVeiw(teamName: homeTeam, teamLogo: homeTeamLogo)
         self.awayTeamLabel = TeamNameLogoVeiw(teamName: awayTeam, teamLogo: awayTeamLogo)
-        self.timeStackView = TimeStatusStackView(matchTime: matchTime, status: matchStatus)
+        self.timeStatusView = TimeStatusView(matchTime: matchTime, status: matchStatus)
         
         super.init()
         setupScores()
@@ -51,7 +51,7 @@ class MatchView: BaseView {
         
         addSubview(timeRect)
         timeRect.addSubview(divider)
-        timeRect.addSubview(timeStackView)
+        timeRect.addSubview(timeStatusView)
         addSubview(homeTeamLabel)
         addSubview(awayTeamLabel)
     }
@@ -76,7 +76,7 @@ class MatchView: BaseView {
             $0.top.equalToSuperview()
             $0.leading.equalToSuperview()
         }
-        timeStackView.snp.makeConstraints {
+        timeStatusView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(10)
             $0.leading.equalToSuperview().offset(4)
             $0.trailing.equalToSuperview().inset(4)

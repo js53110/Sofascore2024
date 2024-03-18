@@ -10,7 +10,7 @@ import SnapKit
 import UIKit
 import SofaAcademic
 
-class LeagueNameView: BaseView {
+class LeagueInfoView: BaseView {
 
     private let countryName: String
     private let leagueName: String
