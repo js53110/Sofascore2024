@@ -21,8 +21,8 @@ class MatchView: BaseView {
     private let matchStatus: matchStatus
     private let matchTime: TimeInterval
     
-    private let homeTeamLabel: TeamLabel
-    private let awayTeamLabel: TeamLabel
+    private let homeTeamLabel: TeamNameLogoVeiw
+    private let awayTeamLabel: TeamNameLogoVeiw
     private let timeStackView: TimeStatusStackView
     
     private let divider = UIView()
@@ -39,8 +39,8 @@ class MatchView: BaseView {
         self.matchStatus = matchStatus
         self.matchTime = matchTime
         
-        self.homeTeamLabel = TeamLabel(teamName: homeTeam, teamLogo: homeTeamLogo)
-        self.awayTeamLabel = TeamLabel(teamName: awayTeam, teamLogo: awayTeamLogo)
+        self.homeTeamLabel = TeamNameLogoVeiw(teamName: homeTeam, teamLogo: homeTeamLogo)
+        self.awayTeamLabel = TeamNameLogoVeiw(teamName: awayTeam, teamLogo: awayTeamLogo)
         self.timeStackView = TimeStatusStackView(matchTime: matchTime, status: matchStatus)
         
         super.init()

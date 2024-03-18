@@ -13,7 +13,7 @@
 		D23289AD2BA0F68D00139113 /* LeagueNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23289AC2BA0F68D00139113 /* LeagueNameView.swift */; };
 		D23289AF2BA0F7B000139113 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D23289AE2BA0F7B000139113 /* Roboto-Bold.ttf */; };
 		D23289B12BA0F99600139113 /* MatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23289B02BA0F99600139113 /* MatchView.swift */; };
-		D23289B32BA103F700139113 /* TeamLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23289B22BA103F700139113 /* TeamLabel.swift */; };
+		D23289B32BA103F700139113 /* TeamNameLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23289B22BA103F700139113 /* TeamNameLogoView.swift */; };
 		D23289B52BA107EE00139113 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D23289B42BA107EE00139113 /* Roboto-Regular.ttf */; };
 		D23289B72BA10CDF00139113 /* ScoreLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23289B62BA10CDF00139113 /* ScoreLabel.swift */; };
 		D236A6382B9B598600C2ADB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D236A6372B9B598600C2ADB4 /* AppDelegate.swift */; };
@@ -31,7 +31,7 @@
 		D23289AC2BA0F68D00139113 /* LeagueNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueNameView.swift; sourceTree = "<group>"; };
 		D23289AE2BA0F7B000139113 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		D23289B02BA0F99600139113 /* MatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchView.swift; sourceTree = "<group>"; };
-		D23289B22BA103F700139113 /* TeamLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamLabel.swift; sourceTree = "<group>"; };
+		D23289B22BA103F700139113 /* TeamNameLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamNameLogoView.swift; sourceTree = "<group>"; };
 		D23289B42BA107EE00139113 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		D23289B62BA10CDF00139113 /* ScoreLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreLabel.swift; sourceTree = "<group>"; };
 		D236A6342B9B598600C2ADB4 /* SofascoreAcademy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SofascoreAcademy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,7 +88,7 @@
 				D236A6402B9B598900C2ADB4 /* Assets.xcassets */,
 				D236A6422B9B598900C2ADB4 /* LaunchScreen.storyboard */,
 				D236A6452B9B598900C2ADB4 /* Info.plist */,
-				D23289B22BA103F700139113 /* TeamLabel.swift */,
+				D23289B22BA103F700139113 /* TeamNameLogoView.swift */,
 				D23289B02BA0F99600139113 /* MatchView.swift */,
 				D2B91A632BA1B7E30004B74A /* TimeStatusStackView.swift */,
 				D23289AA2BA0F67000139113 /* LeagueView.swift */,
@@ -183,7 +183,7 @@
 				D23289B72BA10CDF00139113 /* ScoreLabel.swift in Sources */,
 				D23289AB2BA0F67000139113 /* LeagueView.swift in Sources */,
 				D236A6382B9B598600C2ADB4 /* AppDelegate.swift in Sources */,
-				D23289B32BA103F700139113 /* TeamLabel.swift in Sources */,
+				D23289B32BA103F700139113 /* TeamNameLogoView.swift in Sources */,
 				D23289AD2BA0F68D00139113 /* LeagueNameView.swift in Sources */,
 				D23289B12BA0F99600139113 /* MatchView.swift in Sources */,
 				D236A63A2B9B598600C2ADB4 /* SceneDelegate.swift in Sources */,

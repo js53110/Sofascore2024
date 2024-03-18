@@ -11,7 +11,7 @@ import UIKit
 import SofaAcademic
 
 
-class TeamLabel: BaseView {
+class TeamNameLogoVeiw: BaseView {
     
     let teamName: String
     let teamLogo: String
