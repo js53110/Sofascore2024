@@ -12,12 +12,12 @@ import SofaAcademic
 
 class LeagueNameView: BaseView {
 
-    let countryName: String
-    let leagueName: String
-    let leagueLogo: String
-    let arrow: String = "pointer"
-    let stackView: UIStackView
-    
+    private let countryName: String
+    private let leagueName: String
+    private let leagueLogo: String
+    private let arrow: String = "pointer"
+
+    private let stackView = UIStackView()
     private let countryNameLabel = UILabel()
     private let leagueNameLabel = UILabel()
     
@@ -30,7 +30,6 @@ class LeagueNameView: BaseView {
         self.leagueName = leagueName
         self.leagueLogo = leagueLogo
         
-        self.stackView = UIStackView(arrangedSubviews: [countryNameLabel, arrowImageView, leagueNameLabel])
 
         super.init()
     }
@@ -39,6 +38,9 @@ class LeagueNameView: BaseView {
         
         addSubview(stackView)
         addSubview(leagueLogoImageView)
+        stackView.addArrangedSubview(countryNameLabel)
+        stackView.addArrangedSubview(arrowImageView)
+        stackView.addArrangedSubview(leagueNameLabel)
     }
 
     override func styleViews() {
