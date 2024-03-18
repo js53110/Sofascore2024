@@ -33,9 +33,7 @@ class LeagueView: BaseView {
         }
         
         leagueNameView.snp.makeConstraints() {
-            $0.top.bottom.equalToSuperview()
-            $0.leading.equalToSuperview()
-            $0.trailing.equalToSuperview()
+            $0.edges.equalToSuperview()
         }
     }
     
