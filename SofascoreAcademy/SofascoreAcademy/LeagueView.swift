@@ -11,7 +11,8 @@ import SofaAcademic
 
 class LeagueView: BaseView {
     
-    let leagueData: Array<matchData>
+    private let leagueData: Array<matchData>
+    private let leagueNameView:LeagueNameView = .init(countryName: "Spain", leagueName: "LaLiga", leagueLogo: "leagueLogo")
     
     init(leagueData: Array<matchData>) {
         
@@ -19,8 +20,6 @@ class LeagueView: BaseView {
         super.init()
         setupView()
         }
-    
-    let leagueNameView:LeagueNameView = .init(countryName: "Spain", leagueName: "LaLiga", leagueLogo: "leagueLogo")
     
     override func addViews() {
         
