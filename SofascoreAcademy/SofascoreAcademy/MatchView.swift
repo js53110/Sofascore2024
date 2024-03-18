@@ -74,23 +74,23 @@ class MatchView: BaseView {
             $0.height.equalTo(56)
             $0.width.equalTo(64)
             $0.top.equalToSuperview()
-            $0.left.equalToSuperview()
+            $0.leading.equalToSuperview()
         }
         timeStackView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(10)
             $0.leading.equalToSuperview().offset(4)
-            $0.trailing.equalToSuperview().offset(-4)
+            $0.trailing.equalToSuperview().inset(4)
             $0.bottom.equalToSuperview().inset(10)
         }
         
         homeTeamLabel.snp.makeConstraints() {
             $0.top.equalToSuperview().offset(10)
-            $0.leading.equalToSuperview().offset(80)
+            $0.leading.equalTo(timeRect.snp.trailing).offset(16)
         }
         
         awayTeamLabel.snp.makeConstraints() {
             $0.top.equalToSuperview().offset(30)
-            $0.leading.equalToSuperview().offset(80)
+            $0.leading.equalTo(timeRect.snp.trailing).offset(16)
         }
     }
     
@@ -101,7 +101,7 @@ class MatchView: BaseView {
             addSubview(homeResult)
             homeResult.snp.makeConstraints() {
                 $0.top.equalToSuperview().offset(10)
-                $0.right.equalToSuperview().inset(16)
+                $0.trailing.equalToSuperview().inset(16)
             }
         }
 
@@ -110,7 +110,7 @@ class MatchView: BaseView {
             addSubview(awayResult)
             awayResult.snp.makeConstraints() {
                 $0.top.equalToSuperview().offset(30)
-                $0.right.equalToSuperview().inset(16)
+                $0.trailing.equalToSuperview().inset(16)
             }
         }
     }
