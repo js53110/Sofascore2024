@@ -42,7 +42,7 @@ class LeagueView: BaseView {
         for (index, data) in leagueData.enumerated() {
             let matchView = MatchView(homeTeam: data.homeTeam, homeTeamLogo: data.homeLogo, homeTeamScore: data.homeTeamScore, awayTeam: data.awayTeam, awayTeamLogo: data.awayLogo, awayTeamScore: data.awayTeamScore, matchStatus: data.status, matchTime: data.timeStamp)
                     
-            addSubview(matchView)
+            leagueNameView.addSubview(matchView)
                     
             matchView.snp.makeConstraints {
                 $0.top.equalToSuperview().offset((index+1) * 56)
