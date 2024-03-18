@@ -28,23 +28,35 @@ class MatchView: BaseView {
     
     private let divider = UIView()
     private let timeRect = UIView()
+    
+    private let score: (Int, Int)?
+    
 
-    init(matchId: Int, homeTeam:String, homeTeamLogo: String, homeTeamScore:Int?, awayTeam:String, awayTeamLogo: String, awayTeamScore: Int?, matchStatus: matchStatus, matchTime: TimeInterval) {
+    init(matchId: Int, homeTeam:String, homeTeamLogo: String, awayTeam:String, awayTeamLogo: String, matchStatus: matchStatus, matchTime: TimeInterval) {
         
         self.homeTeam = homeTeam
         self.homeTeamLogo = homeTeamLogo
-        self.homeTeamScore = homeTeamScore
+//        self.homeTeamScore = homeTeamScore
         self.awayTeam = awayTeam
         self.awayTeamLogo = awayTeamLogo
-        self.awayTeamScore = awayTeamScore
-        self.matchStatus = matchStatus
+//        self.awayTeamScore = awayTeamScore
+//        self.matchStatus = matchStatus
         self.matchTime = matchTime
         self.matchId = matchId
+        
+        self.score = updateScore(matchId: matchId) ?? nil
+        self.matchStatus = updateStatus(matchId: matchId)
         
         self.homeTeamLabel = TeamNameLogoVeiw(teamName: homeTeam, teamLogo: homeTeamLogo)
         self.awayTeamLabel = TeamNameLogoVeiw(teamName: awayTeam, teamLogo: awayTeamLogo)
         self.timeStatusView = TimeStatusView(matchTime: matchTime, status: matchStatus)
         
+        if let score = score {
+            (self.homeTeamScore, self.awayTeamScore) = score
+        } else {
+            (self.homeTeamScore, self.awayTeamScore) = (nil, nil)
+        }
+
         super.init()
         setupScores()
     }
@@ -60,7 +72,7 @@ class MatchView: BaseView {
 
     override func styleViews() {
         
-        divider.backgroundColor = UIColor(white: 18.0 / 255.0, alpha: 0.1)
+        divider.backgroundColor = surfaceLv4
     }
 
     override func setupConstraints() {

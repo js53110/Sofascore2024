@@ -40,7 +40,7 @@ class LeagueView: BaseView {
     private func setupView() {
         
         for (index, data) in leagueData.enumerated() {
-            let matchView = MatchView(matchId: data.matchId, homeTeam: data.homeTeam, homeTeamLogo: data.homeLogo, homeTeamScore: data.homeTeamScore, awayTeam: data.awayTeam, awayTeamLogo: data.awayLogo, awayTeamScore: data.awayTeamScore, matchStatus: data.status, matchTime: data.timeStamp)
+            let matchView = MatchView(matchId: data.matchId, homeTeam: data.homeTeam, homeTeamLogo: data.homeLogo, awayTeam: data.awayTeam, awayTeamLogo: data.awayLogo, matchStatus: data.status, matchTime: data.timeStamp)
                     
             LeagueInfoView.addSubview(matchView)
                     

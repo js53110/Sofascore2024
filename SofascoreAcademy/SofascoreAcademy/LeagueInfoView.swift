@@ -51,7 +51,7 @@ class LeagueInfoView: BaseView {
         countryNameLabel.font = RobotoBold
         
         leagueNameLabel.text = leagueName
-        leagueNameLabel.textColor = lightGrey
+        leagueNameLabel.textColor = surfaceLv2
         leagueNameLabel.font = RobotoBold
 
         leagueLogoImageView.image = UIImage(named: leagueLogo)
@@ -69,9 +69,9 @@ class LeagueInfoView: BaseView {
         }
         
         leagueLogoImageView.snp.makeConstraints {
-            $0.width.height.equalTo(32) // Set size to 32x32 points
-            $0.leading.equalToSuperview().offset(16) // 16 points from the left edge of superview
-            $0.centerY.equalToSuperview() // Center vertically in superview
+            $0.width.height.equalTo(32)
+            $0.leading.equalToSuperview().offset(16)
+            $0.centerY.equalToSuperview() 
         }
         
         stackView.snp.makeConstraints() {

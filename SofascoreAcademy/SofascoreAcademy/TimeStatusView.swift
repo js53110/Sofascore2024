@@ -27,7 +27,7 @@ class TimeStatusView: BaseView {
         case .inProgress:
             self.fontColor = .red
         default:
-            self.fontColor = lightGrey
+            self.fontColor = surfaceLv2
         }
         super.init()
     }
@@ -42,7 +42,7 @@ class TimeStatusView: BaseView {
         
         timeView.text = matchTime
         timeView.font = RobotoCondensedRegularMicro
-        timeView.textColor = lightGrey
+        timeView.textColor = surfaceLv2
         timeView.textAlignment = .center
         
         statusView.text = matchStatus

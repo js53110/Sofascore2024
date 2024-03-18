@@ -29,13 +29,33 @@ struct matchData{
     let awayTeamScore: Int?
 }
 
+func updateScore(matchId: Int) -> (Int, Int)? {
+    if let match = leagueData.first(where: { $0.matchId == matchId }) {
+        if let homeScore = match.homeTeamScore, let awayScore = match.awayTeamScore {
+            return (homeScore, awayScore)
+        }
+    }
+    return nil 
+}
+
+func updateStatus(matchId: Int) -> matchStatus {
+    if let match = leagueData.first(where: { $0.matchId == matchId }) {
+        let matchStatus = match.status
+        return matchStatus
+    }
+    return matchStatus.upcoming
+}
+
+
+
+
 func determineMatchStatus(matchStatus: matchStatus) -> String {
     
     switch matchStatus {
     case .finished:
         return "FT"
     case .inProgress:
-        return "37'"
+        return "37'" // tu kasnije mogu dodat funkciju za dinamicko izracunavanje vremena
     default:
         return "-"
     }
@@ -65,7 +85,7 @@ class ViewController: UIViewController {
     let leagueView: LeagueView = .init(leagueData: leagueData)
     
     override func viewDidLoad() {
-        
+                
         super.viewDidLoad()
         
         view.backgroundColor = .white
@@ -74,7 +94,7 @@ class ViewController: UIViewController {
         
         leagueView.snp.makeConstraints() {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            $0.leading.trailing.equalToSuperview() // Match leading and trailing edges of parent
+            $0.leading.trailing.equalToSuperview()
         }
     }
 }

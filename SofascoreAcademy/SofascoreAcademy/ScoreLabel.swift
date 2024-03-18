@@ -33,10 +33,6 @@ class ScoreLabel: BaseView {
         }
         self.scoreString = String(score)
         
-//        var a: matchData? = leagueData.first(where: {$0.matchId == matchId})
-//        print(a?.homeTeam)
-//        print(a?.homeTeamScore)
-        
         super.init()
     }
     
