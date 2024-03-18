@@ -20,6 +20,7 @@ class MatchView: BaseView {
     private let awayTeamScore: Int?
     private let matchStatus: matchStatus
     private let matchTime: TimeInterval
+    private let matchId: Int
     
     private let homeTeamLabel: TeamNameLogoVeiw
     private let awayTeamLabel: TeamNameLogoVeiw
@@ -28,7 +29,7 @@ class MatchView: BaseView {
     private let divider = UIView()
     private let timeRect = UIView()
 
-    init(homeTeam:String, homeTeamLogo: String, homeTeamScore:Int?, awayTeam:String, awayTeamLogo: String, awayTeamScore: Int?, matchStatus: matchStatus, matchTime: TimeInterval) {
+    init(matchId: Int, homeTeam:String, homeTeamLogo: String, homeTeamScore:Int?, awayTeam:String, awayTeamLogo: String, awayTeamScore: Int?, matchStatus: matchStatus, matchTime: TimeInterval) {
         
         self.homeTeam = homeTeam
         self.homeTeamLogo = homeTeamLogo
@@ -38,6 +39,7 @@ class MatchView: BaseView {
         self.awayTeamScore = awayTeamScore
         self.matchStatus = matchStatus
         self.matchTime = matchTime
+        self.matchId = matchId
         
         self.homeTeamLabel = TeamNameLogoVeiw(teamName: homeTeam, teamLogo: homeTeamLogo)
         self.awayTeamLabel = TeamNameLogoVeiw(teamName: awayTeam, teamLogo: awayTeamLogo)
@@ -97,7 +99,7 @@ class MatchView: BaseView {
     private func setupScores() {
         
         if let homeScore = homeTeamScore {
-            let homeResult = ScoreLabel(score: homeScore, matchStatus: matchStatus)
+            let homeResult = ScoreLabel(matchId: matchId, score: homeScore, matchStatus: matchStatus)
             addSubview(homeResult)
             homeResult.snp.makeConstraints() {
                 $0.top.equalToSuperview().offset(10)
@@ -106,11 +108,12 @@ class MatchView: BaseView {
         }
 
         if let awayScore = awayTeamScore {
-            let awayResult = ScoreLabel(score: awayScore, matchStatus: matchStatus)
+            let awayResult = ScoreLabel(matchId: matchId, score: awayScore, matchStatus: matchStatus)
             addSubview(awayResult)
             awayResult.snp.makeConstraints() {
                 $0.top.equalToSuperview().offset(30)
                 $0.trailing.equalToSuperview().inset(16)
+                $0.leading.equalTo(awayTeamLabel.snp.trailing).offset(16)
             }
         }
     }

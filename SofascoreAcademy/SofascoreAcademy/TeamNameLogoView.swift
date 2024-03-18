@@ -43,7 +43,6 @@ class TeamNameLogoVeiw: BaseView {
         
         snp.makeConstraints() {
             $0.height.equalTo(16)
-            $0.width.equalTo(216)
         }
         
         teamNameLabel.snp.makeConstraints() {

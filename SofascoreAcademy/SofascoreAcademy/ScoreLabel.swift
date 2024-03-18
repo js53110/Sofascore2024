@@ -15,12 +15,14 @@ class ScoreLabel: BaseView {
     private let score: Int
     private let scoreString: String
     private let matchStatus: matchStatus
+    private let matchId: Int
     
     private let scoreLabel = UILabel()
     private let textColor: UIColor
 
-    init(score: Int, matchStatus: matchStatus) {
+    init(matchId: Int, score: Int, matchStatus: matchStatus) {
         
+        self.matchId = matchId
         self.score = score
         self.matchStatus = matchStatus
         switch matchStatus {
@@ -30,6 +32,11 @@ class ScoreLabel: BaseView {
             textColor = .black
         }
         self.scoreString = String(score)
+        
+//        var a: matchData? = leagueData.first(where: {$0.matchId == matchId})
+//        print(a?.homeTeam)
+//        print(a?.homeTeamScore)
+        
         super.init()
     }
     
@@ -42,6 +49,7 @@ class ScoreLabel: BaseView {
         
         scoreLabel.text = String(scoreString)
         scoreLabel.textColor = textColor
+        scoreLabel.textAlignment = .right
         scoreLabel.font = RobotoRegular14
     }
 
@@ -54,7 +62,7 @@ class ScoreLabel: BaseView {
         
         scoreLabel.snp.makeConstraints() {
             $0.top.equalToSuperview()
-            $0.trailing.equalToSuperview()
+            $0.leading.trailing.equalToSuperview()
         }
     }
 }
