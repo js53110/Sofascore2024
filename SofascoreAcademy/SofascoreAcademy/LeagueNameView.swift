@@ -74,9 +74,10 @@ class LeagueNameView: BaseView {
             $0.centerY.equalToSuperview() // Center vertically in superview
         }
         
-        stackView.snp.makeConstraints(){
-            $0.leading.equalToSuperview().offset(80)
-            $0.centerY.equalToSuperview() // Center vertically in superview
-        } 
+        stackView.snp.makeConstraints() {
+            $0.leading.equalTo(leagueLogoImageView.snp.trailing).offset(32)
+            $0.centerY.equalToSuperview() 
+        }
+
     }
 }
