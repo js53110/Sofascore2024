@@ -6,6 +6,18 @@ class ViewController: UIViewController, BaseViewProtocol {
 
     private let leagueView: LeagueView = .init(leagueData: leagueData.sorted(by: { $0.timeStamp < $1.timeStamp }))
     
+    func updateScore(matchId: Int, score: Int, side: teamSide) {
+        leagueView.updateScore(matchId: matchId, score: score, side: side)
+    }
+    
+    func updateMatchStatus(matchId: Int, status: matchStatus) {
+        leagueView.updateMatchStatus(matchId: matchId, status: status)
+    }
+    
+    func updateMatchTime(matchId: Int, time: Int) {
+        leagueView.updateMatchTime(matchId: matchId, time: time)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -13,6 +25,11 @@ class ViewController: UIViewController, BaseViewProtocol {
         styleViews()
         setupConstraints()
         setupGestureRecognizers()
+        
+//        updateScore(matchId: 3, score: 3, side: .home)
+//        updateScore(matchId: 3, score: 2, side: .away)
+//        updateMatchStatus(matchId: 3, status: .inProgress)
+//        updateMatchTime(matchId: 2, time: 39)
     }
     
     func addViews() {

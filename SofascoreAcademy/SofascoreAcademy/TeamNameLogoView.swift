@@ -32,7 +32,7 @@ class TeamNameLogoVeiw: BaseView {
 
     override func styleViews() {
         teamNameLabel.text = teamName
-        teamNameLabel.font = RobotoRegular14
+        teamNameLabel.font = fonts.RobotoRegular14
         teamLogoImageView.image = UIImage(named: teamLogo)
     }
 

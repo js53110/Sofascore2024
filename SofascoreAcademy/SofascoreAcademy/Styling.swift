@@ -8,11 +8,18 @@
 import Foundation
 import UIKit
 
-public var RobotoBold = UIFont(name: "Roboto-Bold", size: 14)
-public var RobotoRegular14 = UIFont(name: "Roboto-Regular", size: 14)
-public var RobotoRegular12 = UIFont(name: "Roboto-Regular", size: 12)
-public var RobotoCondensedRegularMicro = UIFont(name: "RobotoCondensed-Regular", size: 12)
+public enum fonts {
+    static let RobotoBold = UIFont(name: "Roboto-Bold", size: 14)
+    static let RobotoRegular14 = UIFont(name: "Roboto-Regular", size: 14)
+    static let RobotoRegular12 = UIFont(name: "Roboto-Regular", size: 12)
+    static let RobotoCondensedRegularMicro = UIFont(name: "RobotoCondensed-Regular", size: 12)
+}
 
-public var surfaceLv2 = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
-public var red = UIColor.red
-public var surfaceLv4 = UIColor(white: 18.0 / 255.0, alpha: 0.1)
+public enum colors {
+    static let surfaceLv2 = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
+    static let red = UIColor.red
+    static let surfaceLv4 = UIColor(white: 18.0 / 255.0, alpha: 0.1)
+}
+
+
+

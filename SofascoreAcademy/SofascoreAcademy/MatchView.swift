@@ -10,6 +10,11 @@ import SnapKit
 import UIKit
 import SofaAcademic
 
+public enum teamSide {
+    case home
+    case away
+}
+
 class MatchView: BaseView {
     
     private let homeTeam: String
@@ -18,7 +23,7 @@ class MatchView: BaseView {
     private let awayTeamLogo: String
     private let matchStatus: matchStatus
     private let matchTime: TimeInterval
-    private let matchId: Int
+    let matchId: Int
     
     private let homeTeamLabel: TeamNameLogoVeiw
     private let awayTeamLabel: TeamNameLogoVeiw
@@ -30,7 +35,24 @@ class MatchView: BaseView {
     private let divider = UIView()
     private let timeRect = UIView()
     
-    private let score: (Int, Int)?
+    func updateScore(score: Int, side: teamSide){
+        if(side == .home) {
+            homeResult.updateScore(score: score)
+        }
+        else if(side == .away) {
+            awayResult.updateScore(score: score)
+        }
+    }
+    
+    func updateMatchStatus(status: matchStatus) {
+        homeResult.updateMatchStatus(status: status)
+        awayResult.updateMatchStatus(status: status)
+        timeStatusView.updateMatchStatus(status: status)
+    }
+    
+    func updateMatchTime(time: Int) {
+        timeStatusView.updateMatchTime(time: time)
+    }
     
     init(matchId: Int, homeTeam:String, homeTeamLogo: String, awayTeam:String, awayTeamLogo: String, matchStatus: matchStatus, matchTime: TimeInterval) {
         
@@ -41,20 +63,15 @@ class MatchView: BaseView {
         self.matchTime = matchTime
         self.matchId = matchId
         
-        self.score = updateScore(matchId: matchId) ?? nil
-        self.matchStatus = updateStatus(matchId: matchId)
+        self.matchStatus = helpers.getMatchStatus(matchId: matchId)
         
         self.homeTeamLabel = TeamNameLogoVeiw(teamName: homeTeam, teamLogo: homeTeamLogo)
         self.awayTeamLabel = TeamNameLogoVeiw(teamName: awayTeam, teamLogo: awayTeamLogo)
         self.timeStatusView = TimeStatusView(matchTime: matchTime, status: matchStatus)
         
-        if let score = score {
-            self.homeResult = ScoreLabel(matchId: matchId, score: score.0, status: matchStatus)
-            self.awayResult = ScoreLabel(matchId: matchId, score: score.1, status: matchStatus)
-        } else {
-            self.homeResult = ScoreLabel(matchId: matchId, score: nil, status: matchStatus)
-            self.awayResult = ScoreLabel(matchId: matchId, score: nil, status: matchStatus)
-        }
+        self.homeResult = ScoreLabel(matchId: matchId, side: .home)
+        self.awayResult = ScoreLabel(matchId: matchId, side: .away)
+        
 
         super.init()
     }
@@ -70,7 +87,7 @@ class MatchView: BaseView {
     }
 
     override func styleViews() {
-        divider.backgroundColor = surfaceLv4
+        divider.backgroundColor = colors.surfaceLv4
     }
 
     override func setupConstraints() {
@@ -107,12 +124,12 @@ class MatchView: BaseView {
         
         homeResult.snp.makeConstraints() {
             $0.top.equalToSuperview().offset(10)
-            $0.leading.equalTo(homeTeamLabel.snp.trailing).offset(16)
+            $0.trailing.equalToSuperview().inset(16)
         }
     
         awayResult.snp.makeConstraints() {
             $0.top.equalToSuperview().offset(30)
-            $0.leading.equalTo(awayTeamLabel.snp.trailing).offset(16)
+            $0.trailing.equalToSuperview().inset(16)
         }
     }
 }

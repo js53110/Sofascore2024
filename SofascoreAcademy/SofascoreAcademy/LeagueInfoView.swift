@@ -44,11 +44,11 @@ class LeagueInfoView: BaseView {
         stackView.axis = .horizontal
         stackView.alignment = .center
         countryNameLabel.text = countryName
-        countryNameLabel.font = RobotoBold
+        countryNameLabel.font = fonts.RobotoBold
         
         leagueNameLabel.text = leagueName
-        leagueNameLabel.textColor = surfaceLv2
-        leagueNameLabel.font = RobotoBold
+        leagueNameLabel.textColor = colors.surfaceLv2
+        leagueNameLabel.font = fonts.RobotoBold
 
         leagueLogoImageView.image = UIImage(named: leagueLogo)
         arrowImageView.image = UIImage(named: arrow)

@@ -12,21 +12,37 @@ import SofaAcademic
 
 class TimeStatusView: BaseView {
     
-    private let matchTime: String
-    private let matchStatus: String
-    private let fontColor: UIColor
+    private var matchTime: String
+    private var matchStatus: String
+    private var fontColor: UIColor
     
     private let timeView = UILabel()
     private let statusView = UILabel()
     
-    init(matchTime: TimeInterval, status: matchStatus) {
-        self.matchTime = convertTimestampToTime(timeStamp: matchTime)
-        self.matchStatus = determineMatchStatus(matchStatus: status)
+    func updateMatchStatus(status: matchStatus) {
+        matchStatus = helpers.determineMatchStatusString(matchStatus: status)
         switch status {
         case .inProgress:
             self.fontColor = .red
         default:
-            self.fontColor = surfaceLv2
+            self.fontColor = colors.surfaceLv2
+        }
+        statusView.text = matchStatus
+        statusView.textColor = fontColor
+    }
+    
+    func updateMatchTime(time: Int) {
+        statusView.text = String(time) + "'"
+    }
+    
+    init(matchTime: TimeInterval, status: matchStatus) {
+        self.matchTime = helpers.convertTimestampToTime(timeStamp: matchTime)
+        self.matchStatus = helpers.determineMatchStatusString(matchStatus: status)
+        switch status {
+        case .inProgress:
+            self.fontColor = .red
+        default:
+            self.fontColor = colors.surfaceLv2
         }
         super.init()
     }
@@ -38,12 +54,12 @@ class TimeStatusView: BaseView {
 
     override func styleViews() {
         timeView.text = matchTime
-        timeView.font = RobotoCondensedRegularMicro
-        timeView.textColor = surfaceLv2
+        timeView.font = fonts.RobotoCondensedRegularMicro
+        timeView.textColor = colors.surfaceLv2
         timeView.textAlignment = .center
         
         statusView.text = matchStatus
-        statusView.font = RobotoCondensedRegularMicro
+        statusView.font = fonts.RobotoCondensedRegularMicro
         statusView.textColor = fontColor
         statusView.textAlignment = .center
     }
@@ -51,14 +67,12 @@ class TimeStatusView: BaseView {
     override func setupConstraints() {
         timeView.snp.makeConstraints() {
             $0.height.equalTo(16)
-            $0.top.equalToSuperview()
-            $0.leading.trailing.equalToSuperview()
+            $0.top.leading.trailing.equalToSuperview()
         }
         
         statusView.snp.makeConstraints() {
             $0.height.equalTo(16)
-            $0.bottom.equalToSuperview()
-            $0.leading.trailing.equalToSuperview()       
+            $0.bottom.leading.trailing.equalToSuperview()
         }
     }
 }

@@ -17,6 +17,27 @@ class LeagueView: BaseView {
     
     private var matchViews: [MatchView] = []
     
+    func updateScore(matchId: Int, score: Int, side: teamSide) {
+        let matchToChange = matchViews.first(where: {
+            $0.matchId == matchId
+        })
+        matchToChange?.updateScore(score: score, side: side)
+    }
+    
+    func updateMatchStatus(matchId: Int, status: matchStatus) {
+        let matchToChange = matchViews.first(where: {
+            $0.matchId == matchId
+        })
+        matchToChange?.updateMatchStatus(status: status)
+    }
+    
+    func updateMatchTime(matchId: Int, time: Int) {
+        let matchToChange = matchViews.first(where: {
+            $0.matchId == matchId
+        })
+        matchToChange?.updateMatchTime(time: time)
+    }
+    
     init(leagueData: Array<matchData>) {
         self.leagueData = leagueData
         
