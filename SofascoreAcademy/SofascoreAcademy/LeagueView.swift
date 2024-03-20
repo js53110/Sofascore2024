@@ -11,43 +11,52 @@ import SofaAcademic
 
 class LeagueView: BaseView {
     
+    private let stackView = UIStackView()
     private let leagueData: Array<matchData>
     private let LeagueInfoView: LeagueInfoView = .init(countryName: "Spain", leagueName: "LaLiga", leagueLogo: "leagueLogo")
     
+    private var matchViews: [MatchView] = []
+    
     init(leagueData: Array<matchData>) {
-        
         self.leagueData = leagueData
+        
+        for (_, data) in leagueData.enumerated() {
+            let matchView = MatchView(matchId: data.matchId, homeTeam: data.homeTeam, homeTeamLogo: data.homeLogo, awayTeam: data.awayTeam, awayTeamLogo: data.awayLogo, matchStatus: data.status, matchTime: data.timeStamp)
+            self.matchViews.append(matchView)
+        }
+        
         super.init()
-        setupView()
         }
     
     override func addViews() {
+        addSubview(stackView)
         
+        for (_, matchView) in matchViews.enumerated() {
+            stackView.addArrangedSubview(matchView)
+        }
+    
         addSubview(LeagueInfoView)
+    }
+    
+    override func styleViews() {
+        stackView.axis = .vertical
     }
 
     override func setupConstraints() {
-        
-        snp.makeConstraints() {
-            $0.height.equalTo(56)
-        }
-        
         LeagueInfoView.snp.makeConstraints() {
-            $0.edges.equalToSuperview()
+            $0.leading.trailing.equalToSuperview()
+            $0.top.bottom.equalToSuperview()
         }
-    }
-    
-    private func setupView() {
         
-        for (index, data) in leagueData.enumerated() {
-            let matchView = MatchView(matchId: data.matchId, homeTeam: data.homeTeam, homeTeamLogo: data.homeLogo, awayTeam: data.awayTeam, awayTeamLogo: data.awayLogo, matchStatus: data.status, matchTime: data.timeStamp)
-                    
-            LeagueInfoView.addSubview(matchView)
-                    
+        stackView.snp.makeConstraints {
+            $0.top.equalTo(LeagueInfoView.snp.bottom)
+            $0.leading.trailing.equalToSuperview()
+        }
+        
+        for (_, matchView) in matchViews.enumerated() {                    
             matchView.snp.makeConstraints {
-                $0.top.equalToSuperview().offset((index+1) * 56)
-                $0.leading.trailing.equalToSuperview()
                 $0.height.equalTo(56)
+                $0.leading.trailing.equalToSuperview()
             }
         }
     }

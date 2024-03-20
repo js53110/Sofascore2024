@@ -12,15 +12,14 @@ import SofaAcademic
 
 class TimeStatusView: BaseView {
     
-    let matchTime: String
-    let matchStatus: String
-    let fontColor: UIColor
+    private let matchTime: String
+    private let matchStatus: String
+    private let fontColor: UIColor
     
-    let timeView = UILabel()
-    let statusView = UILabel()
+    private let timeView = UILabel()
+    private let statusView = UILabel()
     
     init(matchTime: TimeInterval, status: matchStatus) {
-        
         self.matchTime = convertTimestampToTime(timeStamp: matchTime)
         self.matchStatus = determineMatchStatus(matchStatus: status)
         switch status {
@@ -33,13 +32,11 @@ class TimeStatusView: BaseView {
     }
     
     override func addViews() {
-        
         addSubview(timeView)
         addSubview(statusView)
     }
 
     override func styleViews() {
-        
         timeView.text = matchTime
         timeView.font = RobotoCondensedRegularMicro
         timeView.textColor = surfaceLv2
@@ -52,7 +49,6 @@ class TimeStatusView: BaseView {
     }
 
     override func setupConstraints() {
-        
         timeView.snp.makeConstraints() {
             $0.height.equalTo(16)
             $0.top.equalToSuperview()

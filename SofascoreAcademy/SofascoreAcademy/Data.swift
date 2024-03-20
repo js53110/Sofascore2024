@@ -35,4 +35,4 @@ let matchData3 = matchData(matchId: 3, homeTeam: "Manchester United", awayTeam: 
 
 let matchData4 = matchData(matchId: 4, homeTeam: "Manchester United", awayTeam: "Barcelona", homeLogo: "mutd_logo", awayLogo: "fcb_logo", status: .upcoming, timeStamp: 1710354600, homeTeamScore: nil, awayTeamScore: nil)
 
-let leagueData: Array<matchData> = [matchData1, matchData2, matchData3, matchData4]
+let leagueData: Array<matchData> = [matchData2, matchData4, matchData3, matchData1]

@@ -25,7 +25,6 @@ func updateStatus(matchId: Int) -> matchStatus {
 }
 
 func determineMatchStatus(matchStatus: matchStatus) -> String {
-    
     switch matchStatus {
     case .finished:
         return "FT"
@@ -37,7 +36,6 @@ func determineMatchStatus(matchStatus: matchStatus) -> String {
 }
 
 func convertTimestampToTime(timeStamp: TimeInterval) -> String {
-    
     let date = Date(timeIntervalSince1970: timeStamp)
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "HH:mm"

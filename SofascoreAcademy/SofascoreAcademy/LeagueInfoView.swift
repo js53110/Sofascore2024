@@ -25,17 +25,14 @@ class LeagueInfoView: BaseView {
     private let arrowImageView = UIImageView()
 
     init(countryName: String, leagueName: String, leagueLogo: String) {
-        
         self.countryName = countryName
         self.leagueName = leagueName
         self.leagueLogo = leagueLogo
         
-
         super.init()
     }
     
     override func addViews() {
-        
         addSubview(stackView)
         addSubview(leagueLogoImageView)
         stackView.addArrangedSubview(countryNameLabel)
@@ -44,7 +41,6 @@ class LeagueInfoView: BaseView {
     }
 
     override func styleViews() {
-        
         stackView.axis = .horizontal
         stackView.alignment = .center
         countryNameLabel.text = countryName
@@ -59,7 +55,6 @@ class LeagueInfoView: BaseView {
     }
 
     override func setupConstraints() {
-        
         snp.makeConstraints() {
             $0.height.equalTo(56)
         }
@@ -78,6 +73,5 @@ class LeagueInfoView: BaseView {
             $0.leading.equalTo(leagueLogoImageView.snp.trailing).offset(32)
             $0.centerY.equalToSuperview() 
         }
-
     }
 }
