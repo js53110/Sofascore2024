@@ -17,23 +17,21 @@ public enum teamSide {
 
 class MatchView: BaseView {
     
-    private let homeTeam: String
-    private let homeTeamLogo: String
-    private let awayTeam: String
-    private let awayTeamLogo: String
-    private let matchStatus: matchStatus
-    private let matchTime: TimeInterval
-    let matchId: Int
+    private var homeTeam: String?
+    private var homeTeamLogo: String?
+    private var awayTeam: String?
+    private var awayTeamLogo: String?
+    var matchId: Int?
+
+    private var homeTeamLabel = TeamNameLogoView()
+    private var awayTeamLabel = TeamNameLogoView()
+    private var timeStatusView = TimeStatusView()
     
-    private let homeTeamLabel: TeamNameLogoVeiw
-    private let awayTeamLabel: TeamNameLogoVeiw
-    private let timeStatusView: TimeStatusView
+    private var homeResult = ScoreLabel()
+    private var awayResult = ScoreLabel()
     
-    private let homeResult: ScoreLabel
-    private let awayResult: ScoreLabel
-    
-    private let divider = UIView()
-    private let timeRect = UIView()
+    private var divider = UIView()
+    private var timeRect = UIView()
     
     func updateScore(score: Int, side: teamSide){
         if(side == .home) {
@@ -54,26 +52,18 @@ class MatchView: BaseView {
         timeStatusView.updateMatchTime(time: time)
     }
     
-    init(matchId: Int, homeTeam:String, homeTeamLogo: String, awayTeam:String, awayTeamLogo: String, matchStatus: matchStatus, matchTime: TimeInterval) {
+    func update(data: matchData) {
+        matchId = data.matchId
         
-        self.homeTeam = homeTeam
-        self.homeTeamLogo = homeTeamLogo
-        self.awayTeam = awayTeam
-        self.awayTeamLogo = awayTeamLogo
-        self.matchTime = matchTime
-        self.matchId = matchId
+        homeTeamLabel.update(teamName: data.homeTeam, teamLogo: data.homeLogo)
+        awayTeamLabel.update(teamName: data.awayTeam, teamLogo: data.awayLogo)
+        homeResult.update(matchId: data.matchId, status: data.status, score: data.homeTeamScore)
+        awayResult.update(matchId: data.matchId, status: data.status, score: data.awayTeamScore)
+        timeStatusView.update(matchTime: data.timeStamp, status: data.status)
         
-        self.matchStatus = helpers.getMatchStatus(matchId: matchId)
-        
-        self.homeTeamLabel = TeamNameLogoVeiw(teamName: homeTeam, teamLogo: homeTeamLogo)
-        self.awayTeamLabel = TeamNameLogoVeiw(teamName: awayTeam, teamLogo: awayTeamLogo)
-        self.timeStatusView = TimeStatusView(matchTime: matchTime, status: matchStatus)
-        
-        self.homeResult = ScoreLabel(matchId: matchId, side: .home)
-        self.awayResult = ScoreLabel(matchId: matchId, side: .away)
-        
-
-        super.init()
+        addViews()
+        styleViews()
+        setupConstraints()
     }
     
     override func addViews() {

@@ -10,21 +10,23 @@ import SnapKit
 import UIKit
 import SofaAcademic
 
-
-class TeamNameLogoVeiw: BaseView {
+class TeamNameLogoView: BaseView {
     
-    private let teamName: String
-    private let teamLogo: String
+    private var teamName: String = ""
+    private var teamLogo: String?
     
     private let teamNameLabel = UILabel()
     private let teamLogoImageView = UIImageView()
-
-    init(teamName: String, teamLogo: String) {
+    
+    func update(teamName: String, teamLogo: String) {
         self.teamName = teamName
         self.teamLogo = teamLogo
-        super.init()
+        
+        addViews()
+        styleViews()
+        setupConstraints()
     }
-    
+
     override func addViews() {
         addSubview(teamNameLabel)
         addSubview(teamLogoImageView)
@@ -33,7 +35,9 @@ class TeamNameLogoVeiw: BaseView {
     override func styleViews() {
         teamNameLabel.text = teamName
         teamNameLabel.font = fonts.RobotoRegular14
-        teamLogoImageView.image = UIImage(named: teamLogo)
+        if let teamLogo = teamLogo {
+            teamLogoImageView.image = UIImage(named: teamLogo)
+        }
     }
 
     override func setupConstraints() {

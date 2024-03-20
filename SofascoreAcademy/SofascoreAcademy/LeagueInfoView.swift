@@ -12,10 +12,10 @@ import SofaAcademic
 
 class LeagueInfoView: BaseView {
 
-    private let countryName: String
-    private let leagueName: String
-    private let leagueLogo: String
-    private let arrow: String = "pointer"
+    private var countryName: String = ""
+    private var leagueName: String = ""
+    private var leagueLogo: String?
+    private var arrow: String = "pointer"
 
     private let stackView = UIStackView()
     private let countryNameLabel = UILabel()
@@ -23,13 +23,15 @@ class LeagueInfoView: BaseView {
     
     private let leagueLogoImageView = UIImageView()
     private let arrowImageView = UIImageView()
-
-    init(countryName: String, leagueName: String, leagueLogo: String) {
+    
+    func update(countryName: String, leagueName: String, leagueLogo: String) {
         self.countryName = countryName
         self.leagueName = leagueName
         self.leagueLogo = leagueLogo
         
-        super.init()
+        addViews()
+        styleViews()
+        setupConstraints()
     }
     
     override func addViews() {
@@ -50,7 +52,9 @@ class LeagueInfoView: BaseView {
         leagueNameLabel.textColor = colors.surfaceLv2
         leagueNameLabel.font = fonts.RobotoBold
 
-        leagueLogoImageView.image = UIImage(named: leagueLogo)
+        if let leagueLogo = leagueLogo {
+            leagueLogoImageView.image = UIImage(named: leagueLogo)
+        }
         arrowImageView.image = UIImage(named: arrow)
     }
 

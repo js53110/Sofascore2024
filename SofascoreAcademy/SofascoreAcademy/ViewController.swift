@@ -3,9 +3,9 @@ import SnapKit
 import SofaAcademic
 
 class ViewController: UIViewController, BaseViewProtocol {
-
-    private let leagueView: LeagueView = .init(leagueData: leagueData.sorted(by: { $0.timeStamp < $1.timeStamp }))
     
+    private let leagueView = LeagueView()
+        
     func updateScore(matchId: Int, score: Int, side: teamSide) {
         leagueView.updateScore(matchId: matchId, score: score, side: side)
     }
@@ -20,6 +20,8 @@ class ViewController: UIViewController, BaseViewProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        leagueView.update(data: leagueData.sorted(by: { $0.timeStamp < $1.timeStamp }))
         
         addViews()
         styleViews()

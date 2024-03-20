@@ -12,9 +12,7 @@ import SofaAcademic
 class LeagueView: BaseView {
     
     private let stackView = UIStackView()
-    private let leagueData: Array<matchData>
-    private let LeagueInfoView: LeagueInfoView = .init(countryName: "Spain", leagueName: "LaLiga", leagueLogo: "leagueLogo")
-    
+    private let leagueInfoView = LeagueInfoView()
     private var matchViews: [MatchView] = []
     
     func updateScore(matchId: Int, score: Int, side: teamSide) {
@@ -38,25 +36,31 @@ class LeagueView: BaseView {
         matchToChange?.updateMatchTime(time: time)
     }
     
-    init(leagueData: Array<matchData>) {
-        self.leagueData = leagueData
-        
-        for (_, data) in leagueData.enumerated() {
-            let matchView = MatchView(matchId: data.matchId, homeTeam: data.homeTeam, homeTeamLogo: data.homeLogo, awayTeam: data.awayTeam, awayTeamLogo: data.awayLogo, matchStatus: data.status, matchTime: data.timeStamp)
-            self.matchViews.append(matchView)
+    func update(data: [matchData]){
+        leagueInfoView.update(countryName: "Spain", leagueName: "LaLiga", leagueLogo: "leagueLogo")
+        for matchData in data {
+            let matchView = MatchView()
+            matchView.update(data: matchData)
+            matchViews.append(matchView)
         }
         
+        addViews()
+        styleViews()
+        setupConstraints()
+    }
+    
+    override init() {
         super.init()
-        }
+    }
     
     override func addViews() {
         addSubview(stackView)
         
-        for (_, matchView) in matchViews.enumerated() {
+        for matchView in matchViews {
             stackView.addArrangedSubview(matchView)
         }
     
-        addSubview(LeagueInfoView)
+        addSubview(leagueInfoView)
     }
     
     override func styleViews() {
@@ -64,13 +68,13 @@ class LeagueView: BaseView {
     }
 
     override func setupConstraints() {
-        LeagueInfoView.snp.makeConstraints() {
+        leagueInfoView.snp.makeConstraints() {
             $0.leading.trailing.equalToSuperview()
             $0.top.bottom.equalToSuperview()
         }
         
         stackView.snp.makeConstraints {
-            $0.top.equalTo(LeagueInfoView.snp.bottom)
+            $0.top.equalTo(leagueInfoView.snp.bottom)
             $0.leading.trailing.equalToSuperview()
         }
         
