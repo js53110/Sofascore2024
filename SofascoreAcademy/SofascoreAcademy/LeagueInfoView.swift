@@ -13,8 +13,7 @@ import SofaAcademic
 class LeagueInfoView: BaseView {
 
     private var countryName: String = ""
-    private var leagueName: String = ""
-    private var leagueLogo: String?
+ 
     private var arrow: String = "pointer"
 
     private let stackView = UIStackView()
@@ -26,9 +25,9 @@ class LeagueInfoView: BaseView {
     
     func update(countryName: String, leagueName: String, leagueLogo: String) {
         self.countryName = countryName
-        self.leagueName = leagueName
-        self.leagueLogo = leagueLogo
-        
+        leagueNameLabel.text = leagueName
+        leagueLogoImageView.image = UIImage(named: leagueLogo)
+
         addViews()
         styleViews()
         setupConstraints()
@@ -48,13 +47,8 @@ class LeagueInfoView: BaseView {
         countryNameLabel.text = countryName
         countryNameLabel.font = fonts.RobotoBold
         
-        leagueNameLabel.text = leagueName
         leagueNameLabel.textColor = colors.surfaceLv2
         leagueNameLabel.font = fonts.RobotoBold
-
-        if let leagueLogo = leagueLogo {
-            leagueLogoImageView.image = UIImage(named: leagueLogo)
-        }
         arrowImageView.image = UIImage(named: arrow)
     }
 

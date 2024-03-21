@@ -33,25 +33,6 @@ class MatchView: BaseView {
     private var divider = UIView()
     private var timeRect = UIView()
     
-    func updateScore(score: Int, side: teamSide){
-        if(side == .home) {
-            homeResult.updateScore(score: score)
-        }
-        else if(side == .away) {
-            awayResult.updateScore(score: score)
-        }
-    }
-    
-    func updateMatchStatus(status: matchStatus) {
-        homeResult.updateMatchStatus(status: status)
-        awayResult.updateMatchStatus(status: status)
-        timeStatusView.updateMatchStatus(status: status)
-    }
-    
-    func updateMatchTime(time: Int) {
-        timeStatusView.updateMatchTime(time: time)
-    }
-    
     func update(data: matchData) {
         matchId = data.matchId
         
@@ -81,6 +62,10 @@ class MatchView: BaseView {
     }
 
     override func setupConstraints() {
+        snp.makeConstraints() {
+            $0.height.equalTo(56)
+        }
+        
         divider.snp.makeConstraints() {
             $0.leading.equalToSuperview().offset(63)
             $0.trailing.equalToSuperview()
@@ -121,5 +106,26 @@ class MatchView: BaseView {
             $0.top.equalToSuperview().offset(30)
             $0.trailing.equalToSuperview().inset(16)
         }
+    }
+}
+
+extension MatchView {
+    func updateScore(score: Int, side: teamSide){
+        if(side == .home) {
+            homeResult.updateScore(score: score)
+        }
+        else if(side == .away) {
+            awayResult.updateScore(score: score)
+        }
+    }
+    
+    func updateMatchStatus(status: matchStatus) {
+        homeResult.updateMatchStatus(status: status)
+        awayResult.updateMatchStatus(status: status)
+        timeStatusView.updateMatchStatus(status: status)
+    }
+    
+    func updateMatchTime(time: Int) {
+        timeStatusView.updateMatchTime(time: time)
     }
 }

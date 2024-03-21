@@ -19,22 +19,6 @@ class TimeStatusView: BaseView {
     private let timeView = UILabel()
     private let statusView = UILabel()
     
-    func updateMatchStatus(status: matchStatus) {
-        matchStatus = helpers.determineMatchStatusString(matchStatus: status)
-        switch status {
-        case .inProgress:
-            self.fontColor = .red
-        default:
-            self.fontColor = colors.surfaceLv2
-        }
-        statusView.text = matchStatus
-        statusView.textColor = fontColor
-    }
-    
-    func updateMatchTime(time: Int) {
-        statusView.text = String(time) + "'"
-    }
-    
     func update(matchTime: TimeInterval, status: matchStatus) {
         self.matchTime = helpers.convertTimestampToTime(timeStamp: matchTime)
         self.matchStatus = helpers.determineMatchStatusString(matchStatus: status)
@@ -79,5 +63,23 @@ class TimeStatusView: BaseView {
             $0.height.equalTo(16)
             $0.bottom.leading.trailing.equalToSuperview()
         }
+    }
+}
+
+extension TimeStatusView {
+    func updateMatchStatus(status: matchStatus) {
+        matchStatus = helpers.determineMatchStatusString(matchStatus: status)
+        switch status {
+        case .inProgress:
+            self.fontColor = .red
+        default:
+            self.fontColor = colors.surfaceLv2
+        }
+        statusView.text = matchStatus
+        statusView.textColor = fontColor
+    }
+    
+    func updateMatchTime(time: Int) {
+        statusView.text = String(time) + "'"
     }
 }

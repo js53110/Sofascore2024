@@ -15,6 +15,47 @@ class LeagueView: BaseView {
     private let leagueInfoView = LeagueInfoView()
     private var matchViews: [MatchView] = []
     
+    func update(data: [matchData]){
+        leagueInfoView.update(countryName: "Spain", leagueName: "LaLiga", leagueLogo: "leagueLogo")
+        for matchData in data {
+            let matchView = MatchView()
+            matchView.update(data: matchData)
+            stackView.addArrangedSubview(matchView)
+            matchViews.append(matchView)
+        }
+        
+        addViews()
+        styleViews()
+        setupConstraints()
+    }
+    
+    override init() {
+        super.init()
+    }
+    
+    override func addViews() {
+        addSubview(leagueInfoView)
+        addSubview(stackView)
+    }
+    
+    override func styleViews() {
+        stackView.axis = .vertical
+    }
+
+    override func setupConstraints() {
+        leagueInfoView.snp.makeConstraints() {
+            $0.leading.trailing.equalToSuperview()
+            $0.top.bottom.equalToSuperview()
+        }
+        
+        stackView.snp.makeConstraints {
+            $0.top.equalTo(leagueInfoView.snp.bottom)
+            $0.leading.trailing.equalToSuperview()
+        }
+    }
+}
+
+extension LeagueView {
     func updateScore(matchId: Int, score: Int, side: teamSide) {
         let matchToChange = matchViews.first(where: {
             $0.matchId == matchId
@@ -34,55 +75,5 @@ class LeagueView: BaseView {
             $0.matchId == matchId
         })
         matchToChange?.updateMatchTime(time: time)
-    }
-    
-    func update(data: [matchData]){
-        leagueInfoView.update(countryName: "Spain", leagueName: "LaLiga", leagueLogo: "leagueLogo")
-        for matchData in data {
-            let matchView = MatchView()
-            matchView.update(data: matchData)
-            matchViews.append(matchView)
-        }
-        
-        addViews()
-        styleViews()
-        setupConstraints()
-    }
-    
-    override init() {
-        super.init()
-    }
-    
-    override func addViews() {
-        addSubview(stackView)
-        
-        for matchView in matchViews {
-            stackView.addArrangedSubview(matchView)
-        }
-    
-        addSubview(leagueInfoView)
-    }
-    
-    override func styleViews() {
-        stackView.axis = .vertical
-    }
-
-    override func setupConstraints() {
-        leagueInfoView.snp.makeConstraints() {
-            $0.leading.trailing.equalToSuperview()
-            $0.top.bottom.equalToSuperview()
-        }
-        
-        stackView.snp.makeConstraints {
-            $0.top.equalTo(leagueInfoView.snp.bottom)
-            $0.leading.trailing.equalToSuperview()
-        }
-        
-        for (_, matchView) in matchViews.enumerated() {                    
-            matchView.snp.makeConstraints {
-                $0.height.equalTo(56)
-                $0.leading.trailing.equalToSuperview()
-            }
-        }
     }
 }

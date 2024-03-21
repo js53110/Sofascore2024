@@ -17,22 +17,6 @@ class ScoreLabel: BaseView {
 
     private var scoreLabel = UILabel()
     
-    func updateScore(score: Int) {
-        self.score = String(score)
-        scoreLabel.text = self.score
-    }
-    
-    func updateMatchStatus(status: matchStatus) {
-        let matchStatus = status
-        switch matchStatus {
-        case .inProgress:
-            textColor = .red
-        default:
-            textColor = .black
-        }
-        scoreLabel.textColor = textColor
-    }
-    
     func update(matchId: Int, status: matchStatus, score: Int?) {
         if let score = score {
             self.score = String(score)
@@ -67,5 +51,23 @@ class ScoreLabel: BaseView {
             $0.top.bottom.equalToSuperview()
             $0.leading.trailing.equalToSuperview()
         }
+    }
+}
+
+extension ScoreLabel {
+    func updateScore(score: Int) {
+        self.score = String(score)
+        scoreLabel.text = self.score
+    }
+    
+    func updateMatchStatus(status: matchStatus) {
+        let matchStatus = status
+        switch matchStatus {
+        case .inProgress:
+            textColor = .red
+        default:
+            textColor = .black
+        }
+        scoreLabel.textColor = textColor
     }
 }
