@@ -12,27 +12,20 @@ import SofaAcademic
 
 class TimeStatusView: BaseView {
     
-    private var matchTime: String?
-    private var matchStatus: String?
-    private var fontColor: UIColor = .black
     
     private let timeView = UILabel()
     private let statusView = UILabel()
     
     func update(matchTime: TimeInterval, status: matchStatus) {
-        self.matchTime = helpers.convertTimestampToTime(timeStamp: matchTime)
-        self.matchStatus = helpers.determineMatchStatusString(matchStatus: status)
+        timeView.text = helpers.convertTimestampToTime(timeStamp: matchTime)
+        statusView.text = helpers.determineMatchStatusString(matchStatus: status)
         
         switch status {
         case .inProgress:
-            self.fontColor = .red
+            statusView.textColor = .red
         default:
-            self.fontColor = colors.surfaceLv2
+            statusView.textColor = colors.surfaceLv2
         }
-        
-        addViews()
-        styleViews()
-        setupConstraints()
     }
     
 
@@ -42,14 +35,11 @@ class TimeStatusView: BaseView {
     }
 
     override func styleViews() {
-        timeView.text = matchTime
         timeView.font = fonts.RobotoCondensedRegularMicro
         timeView.textColor = colors.surfaceLv2
         timeView.textAlignment = .center
         
-        statusView.text = matchStatus
         statusView.font = fonts.RobotoCondensedRegularMicro
-        statusView.textColor = fontColor
         statusView.textAlignment = .center
     }
 
@@ -68,15 +58,13 @@ class TimeStatusView: BaseView {
 
 extension TimeStatusView {
     func updateMatchStatus(status: matchStatus) {
-        matchStatus = helpers.determineMatchStatusString(matchStatus: status)
         switch status {
         case .inProgress:
-            self.fontColor = .red
+            statusView.textColor = .red
         default:
-            self.fontColor = colors.surfaceLv2
+            statusView.textColor = colors.surfaceLv2
         }
-        statusView.text = matchStatus
-        statusView.textColor = fontColor
+        statusView.text = helpers.determineMatchStatusString(matchStatus: status)
     }
     
     func updateMatchTime(time: Int) {

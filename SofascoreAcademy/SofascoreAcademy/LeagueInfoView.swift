@@ -11,8 +11,6 @@ import UIKit
 import SofaAcademic
 
 class LeagueInfoView: BaseView {
-
-    private var countryName: String = ""
  
     private var arrow: String = "pointer"
 
@@ -24,13 +22,9 @@ class LeagueInfoView: BaseView {
     private let arrowImageView = UIImageView()
     
     func update(countryName: String, leagueName: String, leagueLogo: String) {
-        self.countryName = countryName
+        countryNameLabel.text = countryName
         leagueNameLabel.text = leagueName
         leagueLogoImageView.image = UIImage(named: leagueLogo)
-
-        addViews()
-        styleViews()
-        setupConstraints()
     }
     
     override func addViews() {
@@ -44,7 +38,6 @@ class LeagueInfoView: BaseView {
     override func styleViews() {
         stackView.axis = .horizontal
         stackView.alignment = .center
-        countryNameLabel.text = countryName
         countryNameLabel.font = fonts.RobotoBold
         
         leagueNameLabel.textColor = colors.surfaceLv2

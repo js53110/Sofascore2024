@@ -12,19 +12,12 @@ import SofaAcademic
 
 class TeamNameLogoView: BaseView {
     
-    private var teamName: String = ""
-    private var teamLogo: String?
-    
     private let teamNameLabel = UILabel()
     private let teamLogoImageView = UIImageView()
     
     func update(teamName: String, teamLogo: String) {
-        self.teamName = teamName
-        self.teamLogo = teamLogo
-        
-        addViews()
-        styleViews()
-        setupConstraints()
+        teamNameLabel.text = teamName
+        teamLogoImageView.image = UIImage(named: teamLogo)
     }
 
     override func addViews() {
@@ -33,11 +26,7 @@ class TeamNameLogoView: BaseView {
     }
 
     override func styleViews() {
-        teamNameLabel.text = teamName
         teamNameLabel.font = fonts.RobotoRegular14
-        if let teamLogo = teamLogo {
-            teamLogoImageView.image = UIImage(named: teamLogo)
-        }
     }
 
     override func setupConstraints() {

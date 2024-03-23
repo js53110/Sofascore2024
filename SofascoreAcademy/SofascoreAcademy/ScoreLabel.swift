@@ -12,21 +12,16 @@ import SofaAcademic
 
 class ScoreLabel: BaseView {
     
-    private var score: String = ""
     private var textColor: UIColor = .black
 
     private var scoreLabel = UILabel()
     
     func update(matchId: Int, status: matchStatus, score: Int?) {
         if let score = score {
-            self.score = String(score)
+            scoreLabel.text = String(score)
         }
         
         updateMatchStatus(status: status)
-        
-        addViews()
-        styleViews()
-        setupConstraints()
     }
 
     override func addViews() {
@@ -34,7 +29,6 @@ class ScoreLabel: BaseView {
     }
 
     override func styleViews() {
-        scoreLabel.text = score
         scoreLabel.textColor = textColor
         scoreLabel.textAlignment = .right
         scoreLabel.font = fonts.RobotoRegular14
@@ -56,8 +50,7 @@ class ScoreLabel: BaseView {
 
 extension ScoreLabel {
     func updateScore(score: Int) {
-        self.score = String(score)
-        scoreLabel.text = self.score
+        scoreLabel.text = String(score)
     }
     
     func updateMatchStatus(status: matchStatus) {

@@ -41,10 +41,6 @@ class MatchView: BaseView {
         homeResult.update(matchId: data.matchId, status: data.status, score: data.homeTeamScore)
         awayResult.update(matchId: data.matchId, status: data.status, score: data.awayTeamScore)
         timeStatusView.update(matchTime: data.timeStamp, status: data.status)
-        
-        addViews()
-        styleViews()
-        setupConstraints()
     }
     
     override func addViews() {

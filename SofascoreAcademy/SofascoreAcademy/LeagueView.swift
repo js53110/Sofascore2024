@@ -16,6 +16,8 @@ class LeagueView: BaseView {
     private var matchViews: [MatchView] = []
     
     func update(data: [matchData]){
+        stackView.clear()
+        matchViews = []
         leagueInfoView.update(countryName: "Spain", leagueName: "LaLiga", leagueLogo: "leagueLogo")
         for matchData in data {
             let matchView = MatchView()
@@ -23,10 +25,6 @@ class LeagueView: BaseView {
             stackView.addArrangedSubview(matchView)
             matchViews.append(matchView)
         }
-        
-        addViews()
-        styleViews()
-        setupConstraints()
     }
     
     override init() {
@@ -75,5 +73,14 @@ extension LeagueView {
             $0.matchId == matchId
         })
         matchToChange?.updateMatchTime(time: time)
+    }
+}
+
+extension UIStackView {
+    func clear() {
+        for arrangedSubview in arrangedSubviews {
+            removeArrangedSubview(arrangedSubview)
+            arrangedSubview.removeFromSuperview()
+        }
     }
 }
