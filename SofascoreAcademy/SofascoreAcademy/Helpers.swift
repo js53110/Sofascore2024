@@ -3,7 +3,7 @@ import Foundation
 public enum helpers {
 
     static func getMatchStatus(matchId: Int) -> matchStatus {
-        if let match = leagueData.first(where: { $0.matchId == matchId }) {
+        if let match = matches.first(where: { $0.matchId == matchId }) {
             let matchStatus = match.status
             return matchStatus
         }

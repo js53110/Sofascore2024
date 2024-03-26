@@ -8,9 +8,7 @@ class ViewController: UIViewController, BaseViewProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        leagueView.update(data: leagueData.sorted(by: { $0.timeStamp < $1.timeStamp }))
-        
+                
         addViews()
         styleViews()
         setupConstraints()
@@ -33,6 +31,7 @@ class ViewController: UIViewController, BaseViewProtocol {
     func setupConstraints() {
         leagueView.snp.makeConstraints() {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            $0.bottom.equalToSuperview()
             $0.leading.trailing.equalToSuperview()
         }
     }
@@ -41,16 +40,16 @@ class ViewController: UIViewController, BaseViewProtocol {
     }
 }
 
-extension ViewController { //funkcije za update određenih parametara
-    func updateScore(matchId: Int, score: Int, side: teamSide) {
-        leagueView.updateScore(matchId: matchId, score: score, side: side)
-    }
-    
-    func updateMatchStatus(matchId: Int, status: matchStatus) {
-        leagueView.updateMatchStatus(matchId: matchId, status: status)
-    }
-    
-    func updateMatchTime(matchId: Int, time: Int) {
-        leagueView.updateMatchTime(matchId: matchId, time: time)
-    }
-}
+//extension ViewController { //funkcije za update određenih parametara
+//    func updateScore(matchId: Int, score: Int, side: teamSide) {
+//        leagueView.updateScore(matchId: matchId, score: score, side: side)
+//    }
+//    
+//    func updateMatchStatus(matchId: Int, status: matchStatus) {
+//        leagueView.updateMatchStatus(matchId: matchId, status: status)
+//    }
+//    
+//    func updateMatchTime(matchId: Int, time: Int) {
+//        leagueView.updateMatchTime(matchId: matchId, time: time)
+//    }
+//}
