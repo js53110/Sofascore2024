@@ -43,6 +43,8 @@ class LeagueInfoView: BaseView {
         leagueNameLabel.textColor = colors.surfaceLv2
         leagueNameLabel.font = fonts.RobotoBold
         arrowImageView.image = UIImage(named: arrow)
+        leagueLogoImageView.contentMode = .scaleAspectFit
+
     }
 
     override func setupConstraints() {

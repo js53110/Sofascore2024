@@ -52,21 +52,4 @@ extension ScoreLabel {
     func updateScore(score: Int) {
         scoreLabel.text = String(score)
     }
-    
-    func updateMatchStatus(status: matchStatus) {
-        let matchStatus = status
-        switch matchStatus {
-        case .inProgress:
-            textColor = .red
-        case .upcoming:
-            textColor = .black
-        case .homeTeamWin:
-            textColor = .black
-        case .awayTeamWin:
-            textColor = colors.surfaceLv2
-        case .draw:
-            textColor = colors.surfaceLv2
-        }
-        scoreLabel.textColor = textColor
-    }
 }

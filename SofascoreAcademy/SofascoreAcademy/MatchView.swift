@@ -135,12 +135,6 @@ extension MatchView {
         }
     }
     
-    func updateMatchStatus(status: matchStatus) {
-        homeResult.updateMatchStatus(status: status)
-        awayResult.updateMatchStatus(status: status)
-        timeStatusView.updateMatchStatus(status: status)
-    }
-    
     func updateMatchTime(time: Int) {
         timeStatusView.updateMatchTime(time: time)
     }
