@@ -7,14 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D23289A72BA0F65900139113 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D23289A62BA0F65900139113 /* SnapKit */; };
+		D23289A92BA0F65900139113 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = D23289A82BA0F65900139113 /* SnapKit-Dynamic */; };
+		D23289AB2BA0F67000139113 /* LeagueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23289AA2BA0F67000139113 /* LeagueView.swift */; };
+		D23289AD2BA0F68D00139113 /* LeagueInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23289AC2BA0F68D00139113 /* LeagueInfoView.swift */; };
+		D23289AF2BA0F7B000139113 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D23289AE2BA0F7B000139113 /* Roboto-Bold.ttf */; };
+		D23289B12BA0F99600139113 /* MatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23289B02BA0F99600139113 /* MatchView.swift */; };
+		D23289B32BA103F700139113 /* TeamNameLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23289B22BA103F700139113 /* TeamNameLogoView.swift */; };
+		D23289B52BA107EE00139113 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D23289B42BA107EE00139113 /* Roboto-Regular.ttf */; };
+		D23289B72BA10CDF00139113 /* ScoreLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23289B62BA10CDF00139113 /* ScoreLabel.swift */; };
 		D236A6382B9B598600C2ADB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D236A6372B9B598600C2ADB4 /* AppDelegate.swift */; };
 		D236A63A2B9B598600C2ADB4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D236A6392B9B598600C2ADB4 /* SceneDelegate.swift */; };
 		D236A63C2B9B598700C2ADB4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D236A63B2B9B598700C2ADB4 /* ViewController.swift */; };
 		D236A6412B9B598900C2ADB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D236A6402B9B598900C2ADB4 /* Assets.xcassets */; };
 		D236A6442B9B598900C2ADB4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D236A6422B9B598900C2ADB4 /* LaunchScreen.storyboard */; };
+		D2A383042BA88565001C102F /* Styling.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A383032BA88565001C102F /* Styling.swift */; };
+		D2A383062BA8FA7C001C102F /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A383052BA8FA7C001C102F /* Helpers.swift */; };
+		D2A383082BA8FABD001C102F /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A383072BA8FABD001C102F /* Data.swift */; };
+		D2B91A642BA1B7E30004B74A /* TimeStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B91A632BA1B7E30004B74A /* TimeStatusView.swift */; };
+		D2B91A662BA1C22D0004B74A /* RobotoCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2B91A652BA1C22D0004B74A /* RobotoCondensed-Regular.ttf */; };
+		D2B91A692BA2200A0004B74A /* SofaAcademic in Frameworks */ = {isa = PBXBuildFile; productRef = D2B91A682BA2200A0004B74A /* SofaAcademic */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D23289AA2BA0F67000139113 /* LeagueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueView.swift; sourceTree = "<group>"; };
+		D23289AC2BA0F68D00139113 /* LeagueInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueInfoView.swift; sourceTree = "<group>"; };
+		D23289AE2BA0F7B000139113 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		D23289B02BA0F99600139113 /* MatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchView.swift; sourceTree = "<group>"; };
+		D23289B22BA103F700139113 /* TeamNameLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamNameLogoView.swift; sourceTree = "<group>"; };
+		D23289B42BA107EE00139113 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		D23289B62BA10CDF00139113 /* ScoreLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreLabel.swift; sourceTree = "<group>"; };
 		D236A6342B9B598600C2ADB4 /* SofascoreAcademy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SofascoreAcademy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D236A6372B9B598600C2ADB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D236A6392B9B598600C2ADB4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -22,6 +44,11 @@
 		D236A6402B9B598900C2ADB4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D236A6432B9B598900C2ADB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D236A6452B9B598900C2ADB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2A383032BA88565001C102F /* Styling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styling.swift; sourceTree = "<group>"; };
+		D2A383052BA8FA7C001C102F /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		D2A383072BA8FABD001C102F /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		D2B91A632BA1B7E30004B74A /* TimeStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStatusView.swift; sourceTree = "<group>"; };
+		D2B91A652BA1C22D0004B74A /* RobotoCondensed-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +56,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D23289A72BA0F65900139113 /* SnapKit in Frameworks */,
+				D2B91A692BA2200A0004B74A /* SofaAcademic in Frameworks */,
+				D23289A92BA0F65900139113 /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +68,9 @@
 		D236A62B2B9B598600C2ADB4 = {
 			isa = PBXGroup;
 			children = (
+				D23289B42BA107EE00139113 /* Roboto-Regular.ttf */,
+				D2B91A652BA1C22D0004B74A /* RobotoCondensed-Regular.ttf */,
+				D23289AE2BA0F7B000139113 /* Roboto-Bold.ttf */,
 				D236A6362B9B598600C2ADB4 /* SofascoreAcademy */,
 				D236A6352B9B598600C2ADB4 /* Products */,
 			);
@@ -57,9 +90,18 @@
 				D236A6372B9B598600C2ADB4 /* AppDelegate.swift */,
 				D236A6392B9B598600C2ADB4 /* SceneDelegate.swift */,
 				D236A63B2B9B598700C2ADB4 /* ViewController.swift */,
+				D23289B62BA10CDF00139113 /* ScoreLabel.swift */,
 				D236A6402B9B598900C2ADB4 /* Assets.xcassets */,
 				D236A6422B9B598900C2ADB4 /* LaunchScreen.storyboard */,
 				D236A6452B9B598900C2ADB4 /* Info.plist */,
+				D23289B22BA103F700139113 /* TeamNameLogoView.swift */,
+				D23289B02BA0F99600139113 /* MatchView.swift */,
+				D2B91A632BA1B7E30004B74A /* TimeStatusView.swift */,
+				D2A383072BA8FABD001C102F /* Data.swift */,
+				D23289AA2BA0F67000139113 /* LeagueView.swift */,
+				D23289AC2BA0F68D00139113 /* LeagueInfoView.swift */,
+				D2A383052BA8FA7C001C102F /* Helpers.swift */,
+				D2A383032BA88565001C102F /* Styling.swift */,
 			);
 			path = SofascoreAcademy;
 			sourceTree = "<group>";
@@ -80,6 +122,11 @@
 			dependencies = (
 			);
 			name = SofascoreAcademy;
+			packageProductDependencies = (
+				D23289A62BA0F65900139113 /* SnapKit */,
+				D23289A82BA0F65900139113 /* SnapKit-Dynamic */,
+				D2B91A682BA2200A0004B74A /* SofaAcademic */,
+			);
 			productName = SofascoreAcademy;
 			productReference = D236A6342B9B598600C2ADB4 /* SofascoreAcademy.app */;
 			productType = "com.apple.product-type.application";
@@ -108,6 +155,10 @@
 				Base,
 			);
 			mainGroup = D236A62B2B9B598600C2ADB4;
+			packageReferences = (
+				D23289A52BA0F65900139113 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				D2B91A672BA2200A0004B74A /* XCRemoteSwiftPackageReference "academy" */,
+			);
 			productRefGroup = D236A6352B9B598600C2ADB4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -124,6 +175,9 @@
 			files = (
 				D236A6442B9B598900C2ADB4 /* LaunchScreen.storyboard in Resources */,
 				D236A6412B9B598900C2ADB4 /* Assets.xcassets in Resources */,
+				D23289B52BA107EE00139113 /* Roboto-Regular.ttf in Resources */,
+				D2B91A662BA1C22D0004B74A /* RobotoCondensed-Regular.ttf in Resources */,
+				D23289AF2BA0F7B000139113 /* Roboto-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,9 +188,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2A383042BA88565001C102F /* Styling.swift in Sources */,
 				D236A63C2B9B598700C2ADB4 /* ViewController.swift in Sources */,
+				D23289B72BA10CDF00139113 /* ScoreLabel.swift in Sources */,
+				D23289AB2BA0F67000139113 /* LeagueView.swift in Sources */,
+				D2A383062BA8FA7C001C102F /* Helpers.swift in Sources */,
 				D236A6382B9B598600C2ADB4 /* AppDelegate.swift in Sources */,
+				D23289B32BA103F700139113 /* TeamNameLogoView.swift in Sources */,
+				D2A383082BA8FABD001C102F /* Data.swift in Sources */,
+				D23289AD2BA0F68D00139113 /* LeagueInfoView.swift in Sources */,
+				D23289B12BA0F99600139113 /* MatchView.swift in Sources */,
 				D236A63A2B9B598600C2ADB4 /* SceneDelegate.swift in Sources */,
+				D2B91A642BA1B7E30004B74A /* TimeStatusView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +410,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D23289A52BA0F65900139113 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		D2B91A672BA2200A0004B74A /* XCRemoteSwiftPackageReference "academy" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sofascore/academy";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D23289A62BA0F65900139113 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D23289A52BA0F65900139113 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		D23289A82BA0F65900139113 /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D23289A52BA0F65900139113 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = "SnapKit-Dynamic";
+		};
+		D2B91A682BA2200A0004B74A /* SofaAcademic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D2B91A672BA2200A0004B74A /* XCRemoteSwiftPackageReference "academy" */;
+			productName = SofaAcademic;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D236A62C2B9B598600C2ADB4 /* Project object */;
 }
