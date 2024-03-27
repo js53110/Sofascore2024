@@ -15,9 +15,10 @@ class TeamNameLogoView: BaseView {
     private let teamNameLabel = UILabel()
     private let teamLogoImageView = UIImageView()
     
-    func update(teamName: String, teamLogo: String) {
+    func update(teamName: String, teamLogo: String, color: UIColor) {
         teamNameLabel.text = teamName
         teamLogoImageView.image = UIImage(named: teamLogo)
+        teamNameLabel.textColor = color
     }
 
     override func addViews() {
@@ -27,6 +28,7 @@ class TeamNameLogoView: BaseView {
 
     override func styleViews() {
         teamNameLabel.font = fonts.RobotoRegular14
+        teamLogoImageView.contentMode = .scaleAspectFit
     }
 
     override func setupConstraints() {

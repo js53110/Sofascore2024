@@ -16,12 +16,12 @@ class ScoreLabel: BaseView {
 
     private var scoreLabel = UILabel()
     
-    func update(matchId: Int, status: matchStatus, score: Int?) {
+    func update(matchId: Int, status: matchStatus, score: Int?, color: UIColor) {
         if let score = score {
             scoreLabel.text = String(score)
+            scoreLabel.textColor = color
         }
-        
-        updateMatchStatus(status: status)
+//        updateMatchStatus(status: status)
     }
 
     override func addViews() {
@@ -51,16 +51,5 @@ class ScoreLabel: BaseView {
 extension ScoreLabel {
     func updateScore(score: Int) {
         scoreLabel.text = String(score)
-    }
-    
-    func updateMatchStatus(status: matchStatus) {
-        let matchStatus = status
-        switch matchStatus {
-        case .inProgress:
-            textColor = .red
-        default:
-            textColor = .black
-        }
-        scoreLabel.textColor = textColor
     }
 }
