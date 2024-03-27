@@ -35,7 +35,6 @@ class MatchViewCell: UITableViewCell {
 
 extension MatchViewCell {
     func updateScore(score: Int, side: teamSide){
-        print("called")
         matchView.updateScore(score: score, side: side)
     }
     
