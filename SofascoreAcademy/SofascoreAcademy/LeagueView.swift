@@ -14,18 +14,18 @@ class LeagueView: BaseView {
     private let tableView = UITableView()
     private var matchViews: [MatchView] = []
     
-    func update(data: [matchData]){
+    func update(){
         matchViews = []
-    }
-    
-    override init() {
-        super.init()
         tableView.register(MatchViewCell.self, forCellReuseIdentifier: "MatchViewCell")
         tableView.register(LeagueInfoViewCell.self, forCellReuseIdentifier: "sectionHeader")
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none
         tableView.reloadData()
+    }
+    
+    override init() {
+        super.init()
     }
     
     override func addViews() {
@@ -39,13 +39,14 @@ class LeagueView: BaseView {
     }
 }
 
-extension LeagueView {
-    func updateScore(matchId: Int, score: Int, side: teamSide) {
-        let matchToChange = matchViews.first(where: {
-            $0.matchId == matchId
-        })
-        matchToChange?.updateScore(score: score, side: side)
-    }
+//extension LeagueView {
+//    func updateScore(matchId: Int, score: Int, side: teamSide) {
+//        print(matchViews)
+//        let matchToChange = matchViews.first(where: {
+//            $0.matchId == matchId
+//        })
+//        matchToChange?.updateScore(score: score, side: side)
+//    }
     
 //    func updateMatchStatus(matchId: Int, status: matchStatus) {
 //        let matchToChange = matchViews.first(where: {
@@ -60,7 +61,7 @@ extension LeagueView {
 //        })
 //        matchToChange?.updateMatchTime(time: time)
 //    }
-}
+//}
 
 extension UIStackView {
     func clear() {
@@ -97,7 +98,6 @@ extension LeagueView: UITableViewDataSource {
         cell.update(data: dataForRow)
         
         matchViews.append(cell.matchView)
-
         return cell
     }
 }
