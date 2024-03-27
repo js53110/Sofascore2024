@@ -12,7 +12,7 @@ import SofaAcademic
 class LeagueView: BaseView {
     
     private let tableView = UITableView()
-    private var matchViews: [MatchViewCell] = []
+    private var matchViews: [MatchView] = []
     
     func update(data: [matchData]){
         matchViews = []
@@ -39,14 +39,14 @@ class LeagueView: BaseView {
     }
 }
 
-//extension LeagueView {
-//    func updateScore(matchId: Int, score: Int, side: teamSide) {
-//        let matchToChange = matchViews.first(where: {
-//            $0.matchId == matchId
-//        })
-//        matchToChange?.updateScore(score: score, side: side)
-//    }
-//    
+extension LeagueView {
+    func updateScore(matchId: Int, score: Int, side: teamSide) {
+        let matchToChange = matchViews.first(where: {
+            $0.matchId == matchId
+        })
+        matchToChange?.updateScore(score: score, side: side)
+    }
+    
 //    func updateMatchStatus(matchId: Int, status: matchStatus) {
 //        let matchToChange = matchViews.first(where: {
 //            $0.matchId == matchId
@@ -60,7 +60,7 @@ class LeagueView: BaseView {
 //        })
 //        matchToChange?.updateMatchTime(time: time)
 //    }
-//}
+}
 
 extension UIStackView {
     func clear() {
@@ -92,9 +92,12 @@ extension LeagueView: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MatchViewCell", for: indexPath) as! MatchViewCell
         
+        
         let dataForRow = leaguesData[indexPath.section].matches[indexPath.row - 1]
         cell.update(data: dataForRow)
         
+        matchViews.append(cell.matchView)
+
         return cell
     }
 }

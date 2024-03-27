@@ -3,6 +3,7 @@ import SnapKit
 class MatchViewCell: UITableViewCell {
         
     let matchView = MatchView()
+    var matchId: Int = 0
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
             super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -15,6 +16,7 @@ class MatchViewCell: UITableViewCell {
         }
     
     func update(data: matchData) {
+        matchId = data.matchId
         matchView.update(data: data)
     }
     
@@ -29,4 +31,21 @@ class MatchViewCell: UITableViewCell {
             $0.height.equalTo(56)
         }
     }
+}
+
+extension MatchViewCell {
+    func updateScore(score: Int, side: teamSide){
+        print("called")
+        matchView.updateScore(score: score, side: side)
+    }
+    
+//    func updateMatchStatus(status: matchStatus) {
+//        homeResult.updateMatchStatus(status: status)
+//        awayResult.updateMatchStatus(status: status)
+//        timeStatusView.updateMatchStatus(status: status)
+//    }
+//    
+//    func updateMatchTime(time: Int) {
+//        timeStatusView.updateMatchTime(time: time)
+//    }
 }
